@@ -15,7 +15,7 @@ const emptyStatus: PWAStatus = {
     needRefresh: false,
     offlineReady: false,
     registerError: undefined,
-    registration: undefined,
+    //registration: undefined,
     beforeInstallPrompt: undefined,
     canInstall: false,
     updateFunction: undefined
@@ -23,27 +23,27 @@ const emptyStatus: PWAStatus = {
 
 export const pwaStatusStream = readable(emptyStatus, (set) => {
     let status: PWAStatus = emptyStatus;
-
+    console.log("Entrada en pwaStatusStream")
     if (typeof navigator !== "undefined") {
         const updateSWObject = registerSW({
             onNeedRefresh() {
-                //    console.log('PWA App needs refresh');
+                    console.log('PWA App needs refresh');
                 status.needRefresh = true;
                 status.updateFunction = updateSWObject;  // use updateFunction() to update
                 set(status);
             },
             onOfflineReady() {
-                //  console.log('PWA Offline ready');
+                  console.log('PWA Offline ready');
                 status.offlineReady = true;
                 set(status);
             },
             onRegisterError(error) {
-                //  console.log('PWA error', error);
+                 console.log('PWA error', error);
                 status.registerError = error;
                 set(status);
             },
             onRegistered(registration) {
-                //  console.log('PWA registration', registration);
+                  console.log('PWA registration', registration);
                 status.registration = registration;
                 set(status);
             }
@@ -72,4 +72,3 @@ export const pwaBeforeInstallPrompt = derived(pwaStatusStream, (updateObject) =>
 export const canInstall = derived(pwaStatusStream, (updateObject) => updateObject.canInstall);
 export const pwaUpdateObject = derived(pwaStatusStream, (updateObject) => updateObject.updateFunction);
 export const pwaHasUpdate = derived(pwaStatusStream, (updateObject) => updateObject.updateFunction !== undefined);
-

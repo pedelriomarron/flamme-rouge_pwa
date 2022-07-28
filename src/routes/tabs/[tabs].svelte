@@ -11,6 +11,7 @@
   import Settings from "$pages/Settings.svelte";
   import MountainRanking from "$pages/MountainRanking.svelte";
   import PointsRanking from "$pages/PointsRanking.svelte";
+import Test from "$components/Test.svelte";
 
 
   let tabs = $params.tabs;
@@ -24,6 +25,7 @@
     { label: "Settings", icon: "settings", tab: "settings", component: Settings ,visible:false},
     { label: "Climber Ranking", icon: "assets/icons/mountain.svg", tab: "climber-ranking", component: MountainRanking,visible:false },
     { label: "Points Ranking", icon: "assets/icons/sprint.svg", tab: "points-ranking", component: PointsRanking,visible:false },
+    { label: "test", icon: "assets/icons/sprint.svg", tab: "test", component: Test,visible:true },
 
   ];
 

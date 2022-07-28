@@ -6,6 +6,7 @@ import ExploreContainer from "../components/Test.svelte";
     import {showAlert,selectTab} from "../utils.js"
     import { bicycle,close  } from 'ionicons/icons';
 import OptionSettings from "$components/OptionSettings.svelte";
+import InstallPWA from "$components/InstallPWA.svelte";
 
 
 
@@ -63,7 +64,7 @@ import OptionSettings from "$components/OptionSettings.svelte";
 
       <ion-row>
         <ion-col>
-            
+            <InstallPWA/>
         </ion-col>
       </ion-row>
       <hr>

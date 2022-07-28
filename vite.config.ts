@@ -6,9 +6,9 @@ import { resolve } from 'path'
 import { readFileSync } from 'fs'
 
 const pwaManifest = {
-  name: 'Ionic Svelte',
-  short_name: 'A really cool app',
-  description: 'Coolness in Vite Svelte and Ionic',
+  name: 'Flamme Rouge PWA',
+  short_name: 'flamme-rouge_pwa',
+  description: 'Aplicación en ionic con pwa para el juego de mesa flamme rouge.',
   theme_color: '#000000',
   icons: [
     {
@@ -59,8 +59,16 @@ export default defineConfig({
       },
     }),
     VitePWA({
+      registerType: 'autoUpdate',
+      strategies:"generateSW",
+      workbox: {
+        // workbox options for generateSW
+      },
       manifest: pwaManifest,
       includeAssets: ['favicon.svg', 'favicon.ico', 'robots.txt', 'apple-touch-icon.png', 'assets/*'],
+      devOptions: {
+        enabled: true
+      }
     }),
 
     svelte(),
