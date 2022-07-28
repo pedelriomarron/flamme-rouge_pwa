@@ -12,17 +12,17 @@ const pwaManifest = {
   theme_color: '#000000',
   icons: [
     {
-      src: '/assets/img/great-success.png',
+      src: './assets/img/great-success.png',
       sizes: '192x192',
       type: 'image/png',
     },
     {
-      src: '/assets/img/great-success.png',
+      src: './assets/img/great-success.png',
       sizes: '512x512',
       type: 'image/png',
     },
     {
-      src: '/assets/img/great-success.png',
+      src: './assets/img/great-success.png',
       sizes: '512x512',
       type: 'image/png',
       purpose: 'any maskable',
@@ -46,6 +46,7 @@ const svelteWebcomponentConfig = {
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/flamme-rouge_pwa/",
   plugins: [
     // @ts-ignore
     { config: () => ({ ssr: { noExternal: true } }) },
@@ -67,7 +68,7 @@ export default defineConfig({
       manifest: pwaManifest,
       includeAssets: ['favicon.svg', 'favicon.ico', 'robots.txt', 'apple-touch-icon.png', 'assets/*'],
       devOptions: {
-        enabled: true
+        //enabled: true
       }
     }),
     svelte(),
@@ -84,5 +85,5 @@ export default defineConfig({
       $ionic: resolve('./src/lib/ionic')
     }
   },
-  base: '/flamme-rouge_pwa/',
+
 })

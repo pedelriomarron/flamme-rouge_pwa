@@ -1,30 +1,30 @@
 ion-content {
-    --background: url("src/static//assets/textures/texture.jpg") 0 0/100% 100% no-repeat;
+    --background: url("/assets/textures/texture.jpg") 0 0/100% 100% no-repeat;
 }
 
 @font-face {
     font-family: AppFont;
-    src: url("src/static//assets/fonts/verve.ttf");
+    src: url("/assets/fonts/verve.ttf");
 }
 
 @font-face {
     font-family: TitleFont;
-    src: url("src/static//assets/fonts/k22.ttf");
+    src: url("/assets/fonts/k22.ttf");
 }
 
 @font-face {
     font-family: NormalFont;
-    src: url("src/static//assets/fonts/roboto-regular.ttf");
+    src: url("/assets/fonts/roboto-regular.ttf");
 }
 
 @font-face {
     font-family: Lulo;
-    src: url("src/static//assets/fonts/lulo.ttf");
+    src: url("assets/fonts/lulo.ttf");
 }
 
 @font-face {
     font-family: Limelight;
-    src: url("src/static//assets/fonts/limelight.ttf");
+    src: url("/assets/fonts/limelight.ttf");
 }
 
 .subtitle {

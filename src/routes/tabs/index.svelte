@@ -5,5 +5,9 @@
     console.log("Navigate url", url);
     $goto(url);
   }
-  navigate("/tabs/home");
+
+   let base =""//"/flamme-rouge_pwa"
+
+
+  navigate(base+"/tabs/home");
 </script>

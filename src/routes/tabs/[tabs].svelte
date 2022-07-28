@@ -21,11 +21,11 @@ import Test from "$components/Test.svelte";
     { label: "Inicio", icon: "home", tab: "home", component: Home,visible:true },
     { label: "Etapa", icon: "flag", tab: "stage", component: Stage ,visible:true},
     { label: "General Ranking", icon: "time", tab: "general-ranking", component: GeneralRanking,visible:true },
-    { label: "Teams Ranking", icon:  "assets/icons/team.svg", tab: "teams-ranking", component: TeamsRanking,visible:true },
+    { label: "Teams Ranking", icon:  "./assets/icons/team.svg", tab: "teams-ranking", component: TeamsRanking,visible:true },
     { label: "Settings", icon: "settings", tab: "settings", component: Settings ,visible:false},
-    { label: "Climber Ranking", icon: "assets/icons/mountain.svg", tab: "climber-ranking", component: MountainRanking,visible:false },
-    { label: "Points Ranking", icon: "assets/icons/sprint.svg", tab: "points-ranking", component: PointsRanking,visible:false },
-    { label: "test", icon: "assets/icons/sprint.svg", tab: "test", component: Test,visible:true },
+    { label: "Climber Ranking", icon: "./assets/icons/mountain.svg", tab: "climber-ranking", component: MountainRanking,visible:false },
+    { label: "Points Ranking", icon: "./assets/icons/sprint.svg", tab: "points-ranking", component: PointsRanking,visible:false },
+    { label: "test", icon: "./assets/icons/sprint.svg", tab: "test", component: Test,visible:true },
 
   ];
 
