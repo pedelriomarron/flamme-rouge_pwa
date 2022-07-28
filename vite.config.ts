@@ -70,7 +70,6 @@ export default defineConfig({
         enabled: true
       }
     }),
-
     svelte(),
   ],
   publicDir: "src/static",
@@ -84,5 +83,6 @@ export default defineConfig({
       $static: resolve('./src/static'),
       $ionic: resolve('./src/lib/ionic')
     }
-  }
+  },
+  base: '/flamme-rouge_pwa/',
 })

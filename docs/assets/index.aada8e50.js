@@ -1,0 +1,1 @@
+import{S as a,i as r,s as l,k as i}from"./index.1a1ec80d.js";import{g as u}from"./index.b0e4e99e.js";function c(o,t,e){let s;return i(o,u,n=>e(0,s=n)),console.log("Index.svelte goto"),s("/tabs/[tabs]",{tabs:"home"}),[]}class b extends a{constructor(t){super(),r(this,t,c,null,l,{})}}export{b as default};
