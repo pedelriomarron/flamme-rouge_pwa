@@ -46,7 +46,8 @@ const svelteWebcomponentConfig = {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "https://pedelriomarron.github.io/flamme-rouge_pwa/",
+  //base: "/flamme-rouge_pwa/",
+  base:"https://pedelriomarron.github.io/flamme-rouge_pwa/",
   plugins: [
     // @ts-ignore
     { config: () => ({ ssr: { noExternal: true } }) },
