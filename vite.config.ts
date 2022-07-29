@@ -7,7 +7,7 @@ import { readFileSync } from 'fs'
 
 const pwaManifest = {
   name: 'Flamme Rouge PWA',
-  short_name: 'flamme-rouge_pwa',
+  short_name: 'flamme',
   description: 'Aplicación en ionic con pwa para el juego de mesa flamme rouge.',
   theme_color: '#000000',
   icons: [
@@ -46,8 +46,6 @@ const svelteWebcomponentConfig = {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  //base: "/flamme-rouge_pwa/",
-  base:"https://pedelriomarron.github.io/flamme-rouge_pwa/",
   plugins: [
     // @ts-ignore
     { config: () => ({ ssr: { noExternal: true } }) },
@@ -90,15 +88,4 @@ export default defineConfig({
       $ionic: resolve('./src/lib/ionic')
     }
   },
-  /*server: {
-    proxy: {
-      '/manifest.webmanifest': {
-           target: 'http://localhost:8082/flamme-rouge_pwa/manifest.webmanifest',
-           changeOrigin: true,
-           secure: false,      
-           ws: true,
-           
-       }
-  }
-  }*/
 })
