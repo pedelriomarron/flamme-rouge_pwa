@@ -6,7 +6,7 @@
     $goto(url);
   }
 
-   let base =""//"/flamme-rouge_pwa"
+   let base ="/flamme-rouge_pwa"
 
 
   navigate(base+"/tabs/home");

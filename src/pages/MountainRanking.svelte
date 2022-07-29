@@ -5,8 +5,8 @@ import FinishLine from "$components/FinishLine.svelte";
 import GeneralRanking from "$components/GeneralRanking.svelte";
 import MountainRanking from "$components/MountainRanking.svelte";
 import ExploreContainer from "../components/Test.svelte";
-  import {currentGame,ionTabBarElementCurrent} from "../stores.js"
-  import {showAlert,selectTab} from "../utils.js"
+  import {currentGame,ionTabBarElementCurrent} from "$stores/stores.js"
+  import {showAlert,selectTab} from "$utils/utils.js"
 
 
 

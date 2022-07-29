@@ -1,7 +1,7 @@
 <script lang="ts">
-    import {currentGame} from "../stores.js"
+    import {currentGame} from "$stores/stores.js"
     import { pencil,flag,repeat,arrowForward,trophy,shirt,journal  } from 'ionicons/icons';
-    import {showAlert,selectTab,fancyTimeFormat} from "../utils.js"
+    import {showAlert,selectTab,fancyTimeFormat} from "$utils/utils.js"
 
 
 

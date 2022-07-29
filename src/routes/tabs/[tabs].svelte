@@ -1,8 +1,8 @@
 <script lang="ts">
   import IonTab from "$lib/ionic/svelte/components/IonTabs.svelte";
   import { params } from "@roxi/routify";
-  import {currentGame,ionTabBarElementCurrent,myTabs} from "../../stores.js"
-  import {showAlert,selectTab} from "../../utils.js"
+  import {currentGame,ionTabBarElementCurrent,myTabs} from "$stores/stores.js"
+  import {showAlert,selectTab} from "$utils/utils.js"
   import { pin, images, square } from "ionicons/icons";
   import Home from "$pages/Home.svelte";
   import Stage from "$pages/Stage.svelte";
@@ -25,7 +25,7 @@ import Test from "$components/Test.svelte";
     { label: "Settings", icon: "settings", tab: "settings", component: Settings ,visible:false},
     { label: "Climber Ranking", icon: "./assets/icons/mountain.svg", tab: "climber-ranking", component: MountainRanking,visible:false },
     { label: "Points Ranking", icon: "./assets/icons/sprint.svg", tab: "points-ranking", component: PointsRanking,visible:false },
-    { label: "test", icon: "./assets/icons/sprint.svg", tab: "test", component: Test,visible:true },
+    { label: "test", icon: "./assets/icons/sprint.svg", tab: "test", component: Test,visible:false },
 
   ];
 

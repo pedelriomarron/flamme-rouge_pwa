@@ -1,7 +1,7 @@
 <script lang="ts">
-    import {selectedCurrentTeams,defaultTeams} from "../stores.js"
+    import {selectedCurrentTeams,defaultTeams} from "$stores/stores.js"
     import { create  } from 'ionicons/icons';
-    import {showAlert,selectTab} from "../utils.js"
+    import {showAlert,selectTab} from "$utils/utils.js"
 
     let selection = [];
 

@@ -1,6 +1,6 @@
 <script lang="ts">
-    import {showAlert,selectTab,fancyTimeFormat,updateTabs,fatiga,showAlertPromise, mountainySprint} from "../utils.js"
-    import {currentGame,ionTabBarElementCurrent,myTabs} from "../stores.js"
+    import {showAlert,selectTab,fancyTimeFormat,updateTabs,fatiga,showAlertPromise, mountainySprint} from "$utils/utils.js"
+    import {currentGame,ionTabBarElementCurrent,myTabs} from "$stores/stores.js"
     import { pencil,flag,repeat,arrowForward,trophy,journal  } from 'ionicons/icons';
 
     let finish = false;

@@ -1,6 +1,6 @@
 <script lang="ts">
     import A from "$routes/[...fallback].svelte";
-import {currentGame} from "../stores.js"
+import {currentGame} from "$stores/stores.js"
   </script>
   
   <div>

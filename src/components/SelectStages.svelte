@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {selectedStages} from "../stores.js"
+    import {selectedStages} from "$stores/stores.js"
     import { flag } from 'ionicons/icons';
   
   </script>

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import {ionTabBarElementCurrent} from "../../../../stores.js"
+  import {ionTabBarElementCurrent} from "$stores/stores.js"
 
   import * as ionIcons from "ionicons/icons";
 

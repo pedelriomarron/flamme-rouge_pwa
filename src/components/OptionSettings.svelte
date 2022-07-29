@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {settingsStore} from "../stores.js"
+    import {settingsStore} from "$stores/stores.js"
     export let title;
     export let subtitle
     export let key

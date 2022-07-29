@@ -46,7 +46,7 @@ const svelteWebcomponentConfig = {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  //base: "/flamme-rouge_pwa/",
+  base: "https://pedelriomarron.github.io/flamme-rouge_pwa/",
   plugins: [
     // @ts-ignore
     { config: () => ({ ssr: { noExternal: true } }) },
@@ -71,12 +71,16 @@ export default defineConfig({
         enabled: true
       }
     }),
+    
     svelte(),
   ],
   publicDir: "src/static",
   resolve: {
     alias: {
       $lib: resolve('./src/lib'),
+      $src: resolve('./src'),
+      $utils: resolve('./src/utils'),
+      $stores: resolve('./src/stores'),
       $components: resolve('./src/components'),
       $pages: resolve('./src/pages'),
       $services: resolve('./src/services'),
@@ -85,5 +89,15 @@ export default defineConfig({
       $ionic: resolve('./src/lib/ionic')
     }
   },
-
+  /*server: {
+    proxy: {
+      '/manifest.webmanifest': {
+           target: 'http://localhost:8082/flamme-rouge_pwa/manifest.webmanifest',
+           changeOrigin: true,
+           secure: false,      
+           ws: true,
+           
+       }
+  }
+  }*/
 })

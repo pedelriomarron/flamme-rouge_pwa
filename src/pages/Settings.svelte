@@ -2,8 +2,8 @@
     import CurrentStage from "$components/CurrentStage.svelte";
 import FinishLine from "$components/FinishLine.svelte";
 import ExploreContainer from "../components/Test.svelte";
-    import {currentGame,ionTabBarElementCurrent,settingsStore} from "../stores.js"
-    import {showAlert,selectTab} from "../utils.js"
+    import {currentGame,ionTabBarElementCurrent,settingsStore} from "$stores/stores.js"
+    import {showAlert,selectTab} from "$utils/utils.js"
     import { bicycle,close  } from 'ionicons/icons';
 import OptionSettings from "$components/OptionSettings.svelte";
 import InstallPWA from "$components/InstallPWA.svelte";

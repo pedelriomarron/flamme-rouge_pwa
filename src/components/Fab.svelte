@@ -1,8 +1,8 @@
 <script>
 import ExploreContainer from "../components/Test.svelte";
 import { bicycle,close,trophy,time  } from 'ionicons/icons';
-import {showAlert,selectTab} from "../utils.js"
-import {selectedStages,currentGame, selectedCurrentTeams,ionTabBarElementCurrent,myTabs,settingsStore} from "../stores.js"
+import {showAlert,selectTab} from "$utils/utils.js"
+import {selectedStages,currentGame, selectedCurrentTeams,ionTabBarElementCurrent,myTabs,settingsStore} from "$stores/stores.js"
 
 
 

@@ -1,0 +1,1 @@
+import{S as r,i,s as l,k as u}from"./index.a87ee656.js";import{g as c}from"./index.664aed13.js";let m="/flamme-rouge_pwa";function p(t,e,a){let s;u(t,c,o=>a(0,s=o));function n(o){console.log("Navigate url",o),s(o)}return n(m+"/tabs/home"),[]}class b extends r{constructor(e){super(),i(this,e,p,null,l,{})}}export{b as default};

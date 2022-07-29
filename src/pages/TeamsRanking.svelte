@@ -6,8 +6,8 @@
 import TeamsRanking from "$components/TeamsRanking.svelte";
     import Test from "../components/Test.svelte";
     import ExploreContainer from "../components/Test.svelte";
-      import {currentGame,ionTabBarElementCurrent} from "../stores.js"
-      import {showAlert,selectTab} from "../utils.js"
+      import {currentGame,ionTabBarElementCurrent} from "$stores/stores.js"
+      import {showAlert,selectTab} from "$utils/utils.js"
     
     
     

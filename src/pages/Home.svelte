@@ -1,9 +1,9 @@
 <script>
     import SelectTeams from "$components/SelectTeams.svelte";
     import SelectStages from "$components/SelectStages.svelte";
-    import {showAlert,selectTab,updateTabs} from "../utils.js"
+    import {showAlert,selectTab,updateTabs} from "$utils/utils.js"
 
-    import {selectedStages,currentGame, selectedCurrentTeams,ionTabBarElementCurrent,myTabs,settingsStore} from "../stores.js"
+    import {selectedStages,currentGame, selectedCurrentTeams,ionTabBarElementCurrent,myTabs,settingsStore} from "$stores/stores.js"
 
     import { bicycle,settings  } from 'ionicons/icons';
 

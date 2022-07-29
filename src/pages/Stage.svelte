@@ -3,8 +3,8 @@
 import FinishLine from "$components/FinishLine.svelte";
 import SelectCurrentStage from "$components/SelectCurrentStage.svelte";
 import ExploreContainer from "../components/Test.svelte";
-    import {currentGame,ionTabBarElementCurrent} from "../stores.js"
-    import {showAlert,selectTab} from "../utils.js"
+    import {currentGame,ionTabBarElementCurrent} from "$stores/stores.js"
+    import {showAlert,selectTab} from "$utils/utils.js"
 
 
 

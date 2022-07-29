@@ -1,6 +1,6 @@
 <script lang="ts">
-    import {showAlert,selectTab,fatiga, showAlertPromise, mountainySprint} from "../utils.js"
-    import {currentGame,} from "../stores.js"
+    import {showAlert,selectTab,fatiga, showAlertPromise, mountainySprint} from "$utils/utils.js"
+    import {currentGame,} from "$stores/stores.js"
 
 
      function handleClickButton(cyclist) {
