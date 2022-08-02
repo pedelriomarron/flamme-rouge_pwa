@@ -1,4 +1,18 @@
 import { alertController } from "$ionic/svelte";
+import { writable } from "svelte/store";
+
+const saveGame = (data, id) => {
+    const storedTheme = localStorage.getItem("theme");
+    const theme = writable(storedTheme);
+    var today = { date: new Date() };
+
+    theme.subscribe(value => {
+        localStorage.setItem(id, JSON.stringify(data));
+    });
+
+
+}
+
 
 const showAlert = async(options) => {
     const alert = await alertController.create(options);
@@ -110,4 +124,22 @@ let mountainySprint = (cyclist, currentGame, $currentGame, textname, id) => show
     }, ],
 })
 
-export { showAlert, selectTab, updateTabs, fancyTimeFormat, fatiga, showAlertPromise, mountainySprint }
+function allStorage() {
+
+    var values = [],
+        keys = Object.keys(localStorage),
+        i = keys.length;
+
+    while (i--) {
+        if (keys[i].includes("game")) {
+            values.push({ index: keys[i], game: localStorage.getItem(keys[i]) });
+            console.log(keys[i])
+                // values[keys[i]] = localStorage.getItem(keys[i])
+        }
+
+    }
+
+    return values;
+}
+
+export { showAlert, selectTab, updateTabs, fancyTimeFormat, fatiga, showAlertPromise, mountainySprint, saveGame, allStorage }

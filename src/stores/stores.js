@@ -6,6 +6,7 @@ const selectedStages = writable(2)
 const ionTabBarElementCurrent = writable()
 const myTabs = writable([])
 const settingsStore = writable({ modeMountain: false, modeSprint: false, guardarFatiga: false, confirmarNuevoTurno: false })
+const partidasGuardadas = writable(0)
 
 
 const defaultTeams = writable([
@@ -17,4 +18,4 @@ const defaultTeams = writable([
 
 
 
-export { currentGame, selectedCurrentTeams, selectedStages, ionTabBarElementCurrent, defaultTeams, myTabs, settingsStore }
+export { currentGame, selectedCurrentTeams, selectedStages, ionTabBarElementCurrent, defaultTeams, myTabs, settingsStore, partidasGuardadas }

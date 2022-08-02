@@ -1,14 +1,17 @@
 <script>
     import SelectTeams from "$components/SelectTeams.svelte";
     import SelectStages from "$components/SelectStages.svelte";
-    import {showAlert,selectTab,updateTabs} from "$utils/utils.js"
+    import {showAlert,selectTab,updateTabs,allStorage, showAlertPromise} from "$utils/utils.js"
 
-    import {selectedStages,currentGame, selectedCurrentTeams,ionTabBarElementCurrent,myTabs,settingsStore} from "$stores/stores.js"
+    import {selectedStages,currentGame, selectedCurrentTeams,ionTabBarElementCurrent,myTabs,settingsStore,partidasGuardadas} from "$stores/stores.js"
 
-    import { bicycle,settings  } from 'ionicons/icons';
+    import { bicycle,settings,cloudDownload  } from 'ionicons/icons';
+import LoadGame from "$src/components/LoadGame.svelte";
+
 
     
-    
+    const storedTheme = localStorage.getItem("theme");
+
 
     let cyclists = [
     { id: "sprinter_red", name: 'Sprinter Rojo', team: 'red_team' ,image:"RedSprinteur.jpg",currentTurn:0,currentTime:0,generalTime:0,currentPosition:0,currentCalculo:false, awards:{stageWin:0,secondInStage:0,thirdInStage:0,mountainPoints:0,sprintPoints:0,mountainPointsCurrent:0,sprintPointsCurrent:0},fatiga:0,generalFatiga:0 },
@@ -21,6 +24,70 @@
     { id: "rouler_black", name: 'Rodador Negro', team: 'black_team',image:"BlackRouleur.jpg",currentTurn:0 ,currentTime:0,generalTime:0,currentPosition:0,currentCalculo:false,awards:{stageWin:0,secondInStage:0,thirdInStage:0,mountainPoints:0,sprintPoints:0,mountainPointsCurrent:0,sprintPointsCurrent:0},fatiga:0,generalFatiga:0 },
 ];
 
+
+
+async function handleLoadGame(){
+
+  let cancel =  {
+                  text: "Cancel",
+                  role: "cancel",
+                  cssClass: "secondary",
+                  handler: (value) => {
+                    console.log("Confirm Cancel");
+                  },
+                } 
+
+  let games = allStorage()
+console.log(games)
+
+let radios= []
+games.map(g=>{
+  radios.push( {
+          type: "radio",
+          label: g.index,
+          value: g.index,
+          checked: false,
+        })
+})
+await showAlertPromise({
+      header: "Cargar partida",
+      message: "Elige la partida a cargar.",
+      inputs: radios,
+      buttons: [
+        {
+          text: "Borrar partida",
+          handler: (data) => {
+            if(typeof(data) === "undefined" || data === null ) return false
+            console.log("delete Ok", data);
+            localStorage.removeItem(data)
+           // currentGame.set(JSON.parse(localStorage.getItem(data)))
+            showAlert({
+      header: "Partida Borrada",
+      message: "Partida borrada con exito.",
+      buttons: ["OK"],
+    })
+          },
+        }, 
+        cancel,
+        {
+          text: "Ok",
+          handler: (data) => {
+            if(typeof(data) === "undefined" || data === null ) return false
+            console.log("Confirm Ok", data);
+            currentGame.set(JSON.parse(localStorage.getItem(data)))
+            showAlert({
+      header: "Partida Cargada",
+      message: "Partida cargada con exito.",
+      buttons: ["OK"],
+    })
+          },
+        },
+      ],
+    })
+
+    partidasGuardadas.set(allStorage().length)
+
+}
 
 function openSettings(){
   selectTab($ionTabBarElementCurrent,"settings")
@@ -105,13 +172,19 @@ function openSettings(){
 </script>
   
   <ion-header>
-
     <ion-toolbar>
       <ion-buttons slot="start">
         <ion-button on:click={openSettings}>
           <ion-icon slot="icon-only" icon={settings} />
         </ion-button>
       </ion-buttons>
+      {#if $partidasGuardadas>0}
+      <ion-buttons slot="end">
+        <ion-button on:click={handleLoadGame}>
+          <ion-icon slot="icon-only" icon={cloudDownload} />
+        </ion-button>
+      </ion-buttons>
+      {/if}
       <ion-title>Salida</ion-title>
     </ion-toolbar>
   </ion-header>

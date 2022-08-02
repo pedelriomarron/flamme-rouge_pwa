@@ -1,8 +1,8 @@
 <script lang="ts">
   import IonTab from "$lib/ionic/svelte/components/IonTabs.svelte";
   import { params } from "@roxi/routify";
-  import {currentGame,ionTabBarElementCurrent,myTabs} from "$stores/stores.js"
-  import {showAlert,selectTab} from "$utils/utils.js"
+  import {currentGame,ionTabBarElementCurrent,myTabs,partidasGuardadas} from "$stores/stores.js"
+  import {showAlert,selectTab, allStorage} from "$utils/utils.js"
   import { pin, images, square } from "ionicons/icons";
   import Home from "$pages/Home.svelte";
   import Stage from "$pages/Stage.svelte";
@@ -52,6 +52,10 @@ import Test from "$components/Test.svelte";
       selectTab($ionTabBarElementCurrent,"home")
 
     }
+    
+    partidasGuardadas.set(allStorage().length)
+
+
 
 
   };

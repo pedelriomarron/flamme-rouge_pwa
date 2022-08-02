@@ -4,10 +4,9 @@ import FinishLine from "$components/FinishLine.svelte";
 import ExploreContainer from "../components/Test.svelte";
     import {currentGame,ionTabBarElementCurrent,settingsStore} from "$stores/stores.js"
     import {showAlert,selectTab} from "$utils/utils.js"
-    import { bicycle,close  } from 'ionicons/icons';
+    import { bicycle,close,cloudUpload  } from 'ionicons/icons';
 import OptionSettings from "$components/OptionSettings.svelte";
 import InstallPWA from "$components/InstallPWA.svelte";
-
 
 
 
@@ -24,6 +23,7 @@ import InstallPWA from "$components/InstallPWA.svelte";
               <h4><ion-icon slot="icon-only" icon={close} /></h4>
             </ion-button>
           </ion-buttons>
+
       <ion-title>Ajustes</ion-title>
     </ion-toolbar>
   </ion-header>
