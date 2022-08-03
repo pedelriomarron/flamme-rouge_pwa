@@ -60,6 +60,13 @@ import InstallPWA from "$components/InstallPWA.svelte";
         </ion-col>
       </ion-row>
       <hr>
+      <ion-row><ion-col><h1>Expansiones</h1></ion-col></ion-row>
+      <hr>
+      <ion-row>
+        <ion-col>
+            <OptionSettings key={"expansion_peloton"} title="Expansión Pelotón" subtitle="Activa esta opción si cuentas con la expansión Pelotón (5-6 jugadores)" />
+        </ion-col>
+      </ion-row>
 
 
       <ion-row>

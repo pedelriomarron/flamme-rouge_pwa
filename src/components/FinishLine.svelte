@@ -291,7 +291,10 @@
                 {#if cyclist.currentCalculo == false} <span style={"color:"+$currentGame.teams.find(t=> t.id ==cyclist.team).color}>{i+1}.</span>{/if}
                 <span>{cyclist.name}</span> <br/> 
                 {#if cyclist.currentCalculo == true}
-                    <span class="subtitle">Tiempo calculado al finalizar la ronda</span>
+                    <span class="subtitle">Tiempo calculado al finalizar la ronda.</span><br>
+                    {#if $currentGame.modeMountain} ( <span class="subtitle">{cyclist.awards.mountainPointsCurrent} <ion-icon style=" fill:white;" slot="end" src={$baseURL+"assets/icons/"+"maillot_mountain.svg"} /> </span> ){/if}
+                    {#if $currentGame.modeSprint} ( <span class="subtitle">{cyclist.awards.sprintPointsCurrent} <ion-icon color="green"  slot="end" style="" src={$baseURL+"assets/icons/"+"maillot_yellow.svg"} /> </span> ){/if}
+
                 {:else if cyclist.currentCalculo == false} 
                 {#if i==0 } 
                 <span class="subtitle">Ganador de la etapa</span>   
@@ -303,7 +306,7 @@
                 <br>
                 <span style={"font-size:0.45rem;font-weight:bold"} class="subtitle">Guardadados {cyclist.fatiga} x
                  <ion-icon style={"font-size:0.7rem"} slot="end" icon={journal} color="danger" /> 
-                 para la proxima etapa
+                 para la proxima etapa. 
                 </span>   
 
                 {/if}

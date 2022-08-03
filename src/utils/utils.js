@@ -15,10 +15,13 @@ const saveGame = (data, id) => {
 
 
 const showAlert = async(options) => {
+    options["backdropDismiss"] = false
+
     const alert = await alertController.create(options);
     alert.present();
 };
 async function showAlertPromise(options) {
+    options["backdropDismiss"] = false
     const alert = await alertController.create(options);
     await alert.present();
     let result = await alert.onDidDismiss();
@@ -80,6 +83,7 @@ let fatiga = (cyclist, currentGame, $currentGame) => showAlert({
     cssClass: "",
     header: "Cartas de fatiga",
     subHeader: `¿Cuantas cartas de fatiga permanecen para ${cyclist.name} ?`,
+    backdropDismiss: false,
     inputs: [{
         disabled: false,
         name: "fatiga",
@@ -104,17 +108,19 @@ let fatiga = (cyclist, currentGame, $currentGame) => showAlert({
 let mountainySprint = (cyclist, currentGame, $currentGame, textname, id) => showAlert({
     header: `Puntos de ${textname}`,
     subHeader: `¿Cuantos puntos de ${textname} ha conseguido ${cyclist.name}?`,
+    backdropDismiss: false,
     inputs: [{
         disabled: false,
         name: "value",
         type: "number",
         placeholder: `Puntos de ${textname}`,
+        min: 0
     }, ],
     buttons: [{
         text: "Ok",
         handler: (e) => {
             if (e.value === "") {
-                mountainySprint(cyclist, currentGame, $currentGame)
+                mountainySprint(cyclist, currentGame, $currentGame, textname, id)
             }
             console.log("Confirm Ok", e.team);
             cyclist.awards[id] = e.value
