@@ -67,7 +67,6 @@ import InstallPWA from "$components/InstallPWA.svelte";
             <InstallPWA/>
         </ion-col>
       </ion-row>
-      <hr>
 
 
     </ion-grid>

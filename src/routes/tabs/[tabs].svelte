@@ -1,7 +1,7 @@
 <script lang="ts">
   import IonTab from "$lib/ionic/svelte/components/IonTabs.svelte";
   import { params } from "@roxi/routify";
-  import {baseURL, currentGame,ionTabBarElementCurrent,myTabs,partidasGuardadas} from "$stores/stores.js"
+  import {baseURL, currentGame,ionTabBarElementCurrent,myTabs,partidasGuardadas, settingsStore} from "$stores/stores.js"
   import {showAlert,selectTab, allStorage} from "$utils/utils.js"
   import { pin, images, square } from "ionicons/icons";
   import Home from "$pages/Home.svelte";
@@ -54,7 +54,9 @@ import Test from "$components/Test.svelte";
     }
     
     partidasGuardadas.set(allStorage().length)
-
+    if(localStorage.getItem("settingsStore") != undefined){
+      settingsStore.set(JSON.parse(localStorage.getItem("settingsStore")))
+    }
 
     
 

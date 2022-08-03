@@ -8,6 +8,9 @@
 
     function handCheck(e){
         $settingsStore[key] = e.detail.checked
+
+        console.log("Guardando Settings")
+        localStorage.setItem("settingsStore",JSON.stringify($settingsStore))
     }
 
 
