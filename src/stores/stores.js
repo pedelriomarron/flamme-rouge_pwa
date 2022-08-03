@@ -7,7 +7,7 @@ const ionTabBarElementCurrent = writable()
 const myTabs = writable([])
 const settingsStore = writable({ modeMountain: false, modeSprint: false, guardarFatiga: false, confirmarNuevoTurno: false })
 const partidasGuardadas = writable(0)
-
+const baseURL = writable("")
 
 const defaultTeams = writable([
     { id: "red_team", name: 'Equipo Rojo', color: '#DB5061', image: "red_team.png", awards: { stageWin: 0, secondInStage: 0, thirdInStage: 0, mountainPoints: 0, sprintPoints: 0, total: 0 } },
@@ -18,4 +18,4 @@ const defaultTeams = writable([
 
 
 
-export { currentGame, selectedCurrentTeams, selectedStages, ionTabBarElementCurrent, defaultTeams, myTabs, settingsStore, partidasGuardadas }
+export { currentGame, selectedCurrentTeams, selectedStages, ionTabBarElementCurrent, defaultTeams, myTabs, settingsStore, partidasGuardadas, baseURL }

@@ -2,7 +2,7 @@
 import ExploreContainer from "../components/Test.svelte";
 import { bicycle,close,trophy,time  } from 'ionicons/icons';
 import {showAlert,selectTab} from "$utils/utils.js"
-import {selectedStages,currentGame, selectedCurrentTeams,ionTabBarElementCurrent,myTabs,settingsStore} from "$stores/stores.js"
+import {selectedStages,currentGame, selectedCurrentTeams,ionTabBarElementCurrent,myTabs,settingsStore,baseURL} from "$stores/stores.js"
 
 
 
@@ -19,7 +19,7 @@ function handle(tab){
     </ion-fab-button>
     <ion-fab-list side="top">
       <ion-fab-button on:click={()=> handle("teams-ranking")} color="light">
-        <ion-icon src="assets/icons/team.svg" />
+        <ion-icon src={$baseURL+"assets/icons/team.svg"} />
       </ion-fab-button>
       <ion-fab-button on:click={()=> handle("general-ranking")} color="light">
         <ion-icon icon={time} />
@@ -33,13 +33,13 @@ function handle(tab){
     <ion-fab-list side="start">
       {#if $currentGame.modeSprint==true }
       <ion-fab-button on:click={()=> handle("points-ranking")} color="light">
-        <ion-icon src="assets/icons/sprint.svg" />
+        <ion-icon src={baseURL+"assets/icons/sprint.svg"} />
       </ion-fab-button>
       {/if}
      
       {#if $currentGame.modeMountain==true }
       <ion-fab-button on:click={()=> handle("climber-ranking")} color="light">
-        <ion-icon src="assets/icons/mountain.svg" />
+        <ion-icon src={$baseURL+"assets/icons/mountain.svg"} />
       </ion-fab-button>
       {/if}
 

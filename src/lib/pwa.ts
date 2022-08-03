@@ -1,3 +1,4 @@
+import { baseURL } from '$src/stores/stores';
 import { readable, derived } from 'svelte/store';
 import { registerSW } from 'virtual:pwa-register'
 
@@ -44,6 +45,8 @@ export const pwaStatusStream = readable(emptyStatus, (set) => {
             },
             onRegistered(registration) {
                   console.log('PWA registration', registration);
+                  baseURL.set(registration.scope)
+
                 status.registration = registration;
                 set(status);
             }

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {currentGame} from "$stores/stores.js"
+    import {baseURL, currentGame} from "$stores/stores.js"
     import { pencil,flag,repeat,arrowForward,trophy,shirt,journal  } from 'ionicons/icons';
     import {showAlert,selectTab,fancyTimeFormat} from "$utils/utils.js"
 
@@ -18,7 +18,7 @@
 {:else}
 {#each $currentGame.teams as team,i}
 <ion-row class="ion-align-items-center  ">    
-    <ion-col size="2"><span><ion-icon slot="start" src="assets/icons/team.svg" style={"color:"+team.color+";font-size:1.8rem"} /></span></ion-col>
+    <ion-col size="2"><span><ion-icon slot="start" src={$baseURL+"assets/icons/team.svg"} style={"color:"+team.color+";font-size:1.8rem"} /></span></ion-col>
     <ion-col size="7"><span style={"color:"+team.color}>{i+1}.</span> <span>{team.name}</span> <br/>
       <div class="subtitle">
         {#if team.awards.stageWin >0} {team.awards.stageWin}x<span><ion-icon slot="end" icon={trophy} color="gold" /></span> {/if}  

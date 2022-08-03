@@ -3,14 +3,13 @@
     import SelectStages from "$components/SelectStages.svelte";
     import {showAlert,selectTab,updateTabs,allStorage, showAlertPromise} from "$utils/utils.js"
 
-    import {selectedStages,currentGame, selectedCurrentTeams,ionTabBarElementCurrent,myTabs,settingsStore,partidasGuardadas} from "$stores/stores.js"
+    import {selectedStages,currentGame, selectedCurrentTeams,ionTabBarElementCurrent,myTabs,settingsStore,partidasGuardadas,baseURL} from "$stores/stores.js"
 
     import { bicycle,settings,cloudDownload  } from 'ionicons/icons';
-import LoadGame from "$src/components/LoadGame.svelte";
+    import LoadGame from "$src/components/LoadGame.svelte";
 
 
     
-    const storedTheme = localStorage.getItem("theme");
 
 
     let cyclists = [
@@ -170,7 +169,8 @@ function openSettings(){
 
 
 </script>
-  
+
+
   <ion-header>
     <ion-toolbar>
       <ion-buttons slot="start">

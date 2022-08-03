@@ -1,6 +1,6 @@
 <script lang="ts">
     import {showAlert,selectTab,fatiga, showAlertPromise, mountainySprint} from "$utils/utils.js"
-    import {currentGame,} from "$stores/stores.js"
+    import {currentGame,baseURL} from "$stores/stores.js"
 
 
      function handleClickButton(cyclist) {
@@ -124,7 +124,7 @@
     </ion-col></ion-row>
         {#each $currentGame.cyclistsInRace as cyclist,i}
         <ion-row class="ion-align-items-center ">   
-            <ion-col size="2"><ion-img class="cyclist-rounded inlay-circle" src={"assets/cyclists/"+cyclist.image} /></ion-col>
+            <ion-col size="2"><ion-img class="cyclist-rounded inlay-circle" src={$baseURL+"assets/cyclists/"+cyclist.image} /></ion-col>
             <ion-col size="7"><span>{cyclist.name}</span></ion-col>
             <ion-col class="center" size="3"><ion-button color="brown" on:click={()=> handleClickButton(cyclist)} size="small">Meta</ion-button></ion-col>
         </ion-row>

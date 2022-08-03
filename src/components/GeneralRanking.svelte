@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {currentGame} from "$stores/stores.js"
+    import {baseURL, currentGame} from "$stores/stores.js"
     import { pencil,flag,repeat,arrowForward,trophy,shirt,journal  } from 'ionicons/icons';
     import {showAlert,selectTab,fancyTimeFormat} from "$utils/utils.js"
 
@@ -13,7 +13,7 @@
 {:else}
 {#each $currentGame.cyclists as cyclist,i}
 <ion-row class="ion-align-items-center  ">    
-    <ion-col size="2"><ion-img class="cyclist-rounded inlay-circle" src={"assets/cyclists/"+cyclist.image} /></ion-col>
+    <ion-col size="2"><ion-img class="cyclist-rounded inlay-circle" src={$baseURL+"assets/cyclists/"+cyclist.image} /></ion-col>
     <ion-col size="7"><span style={"color:"+$currentGame.teams.find(t=> t.id ==cyclist.team).color}>{i+1}.</span> <span>{cyclist.name}</span> <br/>
       <div class="subtitle">
         {#if cyclist.awards.stageWin >0} {cyclist.awards.stageWin}x<span><ion-icon slot="end" icon={trophy} color="gold" /></span> {/if}  
@@ -31,14 +31,14 @@
     </ion-col>
     <ion-col size="1">
       {#if [...$currentGame.cyclists].sort((a, b) => b.awards.sprintPoints - a.awards.sprintPoints)[0].id ==cyclist.id }
-      <span><ion-icon class="" slot="end" style="font-size:1rem" src={"assets/icons/"+"maillot_yellow.svg"} color="green" /> </span>
+      <span><ion-icon class="" slot="end" style="font-size:1rem" src={$baseURL+"assets/icons/"+"maillot_yellow.svg"} color="green" /> </span>
       {/if}
       {#if [...$currentGame.cyclists].sort((a, b) => b.awards.mountainPoints - a.awards.mountainPoints)[0].id ==cyclist.id }
-      <span><ion-icon class="" slot="end" style="font-size:1rem;fill:white;" src={"assets/icons/"+"maillot_mountain.svg"} /> </span>
+      <span><ion-icon class="" slot="end" style="font-size:1rem;fill:white;" src={$baseURL+"assets/icons/"+"maillot_mountain.svg"} /> </span>
       {/if}
 
     </ion-col>
-    <ion-col size="2" class="center">{#if i ==0}<span><ion-icon class="maillot" slot="end" style="" src={"assets/icons/"+"maillot_yellow.svg"}  color="gold"  /></span>  {:else}<span class="marker" >+{fancyTimeFormat(cyclist.generalTime)}</span>{/if}</ion-col>
+    <ion-col size="2" class="center">{#if i ==0}<span><ion-icon class="maillot" slot="end" style="" src={$baseURL+"assets/icons/"+"maillot_yellow.svg"}  color="gold"  /></span>  {:else}<span class="marker" >+{fancyTimeFormat(cyclist.generalTime)}</span>{/if}</ion-col>
     <hr>
 </ion-row>
 {/each}

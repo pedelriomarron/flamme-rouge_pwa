@@ -1,6 +1,6 @@
 <script lang="ts">
     import A from "$routes/[...fallback].svelte";
-import {currentGame} from "$stores/stores.js"
+import {baseURL, currentGame} from "$stores/stores.js"
   </script>
   
   <div>
@@ -11,13 +11,13 @@ import {currentGame} from "$stores/stores.js"
 {:else}
 {#each   [...$currentGame.cyclists].sort((a, b) => b.awards.sprintPoints - a.awards.sprintPoints)  as cyclist,i}
 <ion-row class="ion-align-items-center  ">    
-    <ion-col size="2"><ion-img class="cyclist-rounded inlay-circle"  src={"assets/cyclists/"+cyclist.image} /></ion-col>
+    <ion-col size="2"><ion-img class="cyclist-rounded inlay-circle"  src={$baseURL+"assets/cyclists/"+cyclist.image} /></ion-col>
     <ion-col size="6"><span style={"color:"+$currentGame.teams.find(t=> t.id ==cyclist.team).color}>{i+1}.</span> <span>{cyclist.name}</span> <br/>
       <div class="subtitle">
       </div> 
     </ion-col>
       <ion-col size="1"  class="center">{#if i ==0}
-        <span><ion-icon class="maillot" slot="end" style="" src={"assets/icons/"+"maillot_yellow.svg"} color="green" /> </span>
+        <span><ion-icon class="maillot" slot="end" style="" src={$baseURL+"assets/icons/"+"maillot_yellow.svg"} color="green" /> </span>
         {/if}</ion-col>
 
 

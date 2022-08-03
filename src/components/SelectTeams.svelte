@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {selectedCurrentTeams,defaultTeams} from "$stores/stores.js"
+    import {selectedCurrentTeams,defaultTeams, baseURL} from "$stores/stores.js"
     import { create  } from 'ionicons/icons';
     import {showAlert,selectTab} from "$utils/utils.js"
 
@@ -67,7 +67,7 @@
             {/if}
             <ion-col   size="2"><input style={"accent-color:"+team.color} type="checkbox"  bind:checked={selection[team.id]}  name={team.id} id={team.id} value={team.id} on:click={handleClick} /></ion-col>
             <ion-col  size="6"><label for={team.id}>{team.name} {#if selection[team.id]} <span on:click|preventDefault={()=>editNameTeam(team)} ><ion-icon slot="" icon={create} /></span> {/if} </label></ion-col>
-            <ion-col class="ion-no-padding"  size="4"><label for={team.id}><ion-img class={selection[team.id]? "" :"opacity"} src={"./assets/teams/"+team.image} /></label></ion-col>
+            <ion-col class="ion-no-padding"  size="4"><label for={team.id}><ion-img class={selection[team.id]? "" :"opacity"} src={$baseURL+"assets/teams/"+team.image} /></label></ion-col>
         </ion-row>
         {/each}
 

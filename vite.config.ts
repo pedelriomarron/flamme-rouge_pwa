@@ -10,8 +10,6 @@ const pwaManifest = {
   short_name: 'Flamme Rouge PWA',
   description: 'Aplicación en ionic con pwa para el juego de mesa flamme rouge.',
   theme_color: '#000000',
-  start_url: "/flamme-rouge_pwa/index.html",
-  scope: "/",
   icons: [
     {
       src: './assets/img/great-success.png',

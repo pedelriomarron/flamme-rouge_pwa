@@ -1,6 +1,8 @@
 <script lang="ts" context="module">
   import { Router, router } from "../.routify/instance.default.js";
   import { PWAStatus, pwaStatusStream } from "$lib/pwa";
+  import { baseURL } from "./stores/stores.js";
+  
 
   /* Theme variables */
   import "./theme/variables.css";
@@ -12,7 +14,6 @@
 
   pwaStatusStream.subscribe((status: PWAStatus) => {
     console.log("PWA status", status);
-    
 
     if (status.updateFunction) {
       console.log("PWA updating itself in 4 secs......");
