@@ -286,7 +286,7 @@
     <ion-row><ion-col><h1>En Linea de Meta</h1></ion-col></ion-row>
         {#each $currentGame.cyclistsFinish as cyclist,i}
         <ion-row class="ion-align-items-center ">     
-            <ion-col size="2"><ion-img class="cyclist-rounded inlay-circle" src={"assets/cyclists/"+cyclist.image} /></ion-col>
+            <ion-col size="2"><ion-img class="cyclist-rounded inlay-circle" src={"./assets/cyclists/"+cyclist.image} /></ion-col>
             <ion-col class="" size="7">
                 {#if cyclist.currentCalculo == false} <span style={"color:"+$currentGame.teams.find(t=> t.id ==cyclist.team).color}>{i+1}.</span>{/if}
                 <span>{cyclist.name}</span> <br/> 
