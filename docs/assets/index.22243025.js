@@ -1,0 +1,1 @@
+import{S as i,i as r,s as l,k as c}from"./index.bb326342.js";import{g as u}from"./index.85b69638.js";let p="";function m(o,s,a){let e;c(o,u,t=>a(0,e=t));function n(t){console.log("Navigate url",t),e(t)}return n(p+"/tabs/home"),[]}class b extends i{constructor(s){super(),r(this,s,m,null,l,{})}}export{b as default};
