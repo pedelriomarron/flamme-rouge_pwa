@@ -1,0 +1,1 @@
+import{S as i,i as r,s as l,k as c}from"./index.4e9f76e2.js";import{g as u}from"./index.483336f9.js";let p="";function m(o,s,a){let e;c(o,u,t=>a(0,e=t));function n(t){console.log("Navigate url",t),e(t)}return n(p+"/tabs/home"),[]}class b extends i{constructor(s){super(),r(this,s,m,null,l,{})}}export{b as default};
