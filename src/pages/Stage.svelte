@@ -45,7 +45,7 @@ nuevaPartida =    {
            handler: async (data) => {
             await   showAlertPromise({
               cssClass: "my-custom-class",
-              header: "Prompt!",
+              header: "Creando partida",
               inputs: [
                 {
                   name: "name",

@@ -12,6 +12,7 @@
 
   export const load = (url) => router.url.replace(url);
 
+
   pwaStatusStream.subscribe((status: PWAStatus) => {
     console.log("PWA status", status);
 
@@ -22,6 +23,8 @@
       }, 4000);
     }
   });
+
+
 </script>
 
-<Router {router} />
+<Router config={{useHash: true}} {router} />

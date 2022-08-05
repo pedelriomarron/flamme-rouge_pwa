@@ -21,7 +21,7 @@
     <ion-col size="2"><span><ion-icon slot="start" src={$baseURL+"assets/icons/team.svg"} style={"color:"+team.color+";font-size:1.8rem"} /></span></ion-col>
     <ion-col size="7"><span style={"color:"+team.color}>{i+1}.</span> <span>{team.name}</span> <br/>
       <div class="subtitle">
-        {#if team.awards.stageWin >0} {team.awards.stageWin}x<span><ion-icon slot="end" icon={trophy} color="gold" /></span> {/if}  
+        {#if team.awards.firstInStage >0} {team.awards.firstInStage}x<span><ion-icon slot="end" icon={trophy} color="gold" /></span> {/if}  
         {#if team.awards.secondInStage >0} {team.awards.secondInStage}x<span><ion-icon slot="end" icon={trophy} color="silver" /></span>  {/if}   
         {#if team.awards.thirdInStage >0} {team.awards.thirdInStage}x<span><ion-icon slot="end" icon={trophy} color="bronze" /></span>  {/if} 
       </div> 

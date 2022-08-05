@@ -16,7 +16,7 @@
     <ion-col size="2"><ion-img class="cyclist-rounded inlay-circle" src={$baseURL+"assets/cyclists/"+cyclist.image} /></ion-col>
     <ion-col size="6"><span style={"color:"+$currentGame.teams.find(t=> t.id ==cyclist.team).color}>{i+1}.</span> <span>{cyclist.name}</span> <br/>
       <div class="subtitle">
-        {#if cyclist.awards.stageWin >0} {cyclist.awards.stageWin}x<span><ion-icon slot="end" icon={trophy} color="gold" /></span> {/if}  
+        {#if cyclist.awards.firstInStage >0} {cyclist.awards.firstInStage}x<span><ion-icon slot="end" icon={trophy} color="gold" /></span> {/if}  
         {#if cyclist.awards.secondInStage >0} {cyclist.awards.secondInStage}x<span><ion-icon slot="end" icon={trophy} color="silver" /></span>  {/if}   
         {#if cyclist.awards.thirdInStage >0} {cyclist.awards.thirdInStage}x<span><ion-icon slot="end" icon={trophy} color="bronze" /></span>  {/if} 
         {#if $currentGame.guardarFatiga==true }

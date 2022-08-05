@@ -69,11 +69,12 @@ export default defineConfig({
       manifest: pwaManifest,
       includeAssets: ['favicon.svg', 'favicon.ico', 'robots.txt', 'apple-touch-icon.png', 'assets/*'],
       devOptions: {
-        enabled: true
+        enabled: false
       }
     }),
     
     svelte(),
+    disableHistoryFallback()
   ],
   publicDir: "src/static",
   resolve: {
@@ -91,3 +92,45 @@ export default defineConfig({
     }
   },
 })
+
+
+function disableHistoryFallback() {
+
+  return {
+    name: 'disable-history-fallback',
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        const url = req.url!;
+        const base = server.config.base
+        console.log(url," vs ",server.config.base)
+
+        //req.headers.accept?.includes('text/html')
+        if (!url.startsWith(base) && !url.startsWith("/assets") && !url.startsWith("/dev-sw.js") ) {
+            console.log("redireccionando")
+            res.writeHead(302, {
+              Location: server.config.base});
+              res.end();
+              return;
+              /*
+          res.statusCode = 404;
+          res.end(
+              `The serve` 
+                  
+          );
+          return;*/
+
+      }
+      next()
+      })
+    }
+  }
+}
+
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}

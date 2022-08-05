@@ -7,27 +7,10 @@
 
     import { bicycle,settings,cloudDownload  } from 'ionicons/icons';
     import LoadGame from "$src/components/LoadGame.svelte";
+    import { cyclist } from "$src/data/cyclist";
 
 
-    
-
-
-    let cyclists = [
-    { id: "sprinter_red", name: 'Sprinter Rojo', team: 'red_team' ,image:"RedSprinteur.jpg",currentTurn:0,currentTime:0,generalTime:0,currentPosition:0,currentCalculo:false, awards:{stageWin:0,secondInStage:0,thirdInStage:0,mountainPoints:0,sprintPoints:0,mountainPointsCurrent:0,sprintPointsCurrent:0},fatiga:0,generalFatiga:0 },
-    { id: "rouler_red", name: 'Rodador Rojo', team: 'red_team',image:"RedRouleur.jpg",currentTurn:0 ,currentTime:0,generalTime:0,currentPosition:0 ,currentCalculo:false,awards:{stageWin:0,secondInStage:0,thirdInStage:0,mountainPoints:0,sprintPoints:0,mountainPointsCurrent:0,sprintPointsCurrent:0},fatiga:0,generalFatiga:0 },
-    { id: "sprinter_blue", name: 'Sprinter Azul', team: 'blue_team' ,image:"BlueSprinteur.jpg",currentTurn:0,currentTime:0,generalTime:0,currentPosition:0,currentCalculo:false,awards:{stageWin:0,secondInStage:0,thirdInStage:0,mountainPoints:0,sprintPoints:0,mountainPointsCurrent:0,sprintPointsCurrent:0},fatiga:0,generalFatiga:0  },
-    { id: "rouler_blue", name: 'Rodador Azul', team: 'blue_team',image:"BlueRouleur.jpg",currentTurn:0,currentTime:0,generalTime:0,currentPosition:0 ,currentCalculo:false,awards:{stageWin:0,secondInStage:0,thirdInStage:0,mountainPoints:0,mountainPointsCurrent:0,sprintPoints:0,sprintPointsCurrent:0} ,fatiga:0,generalFatiga:0 },
-    { id: "sprinter_green", name: 'Sprinter Verde', team: 'green_team' ,image:"GreenSprinteur.jpg",currentTurn:0,currentTime:0,generalTime:0,currentPosition:0 ,currentCalculo:false,awards:{stageWin:0,secondInStage:0,thirdInStage:0,mountainPoints:0,sprintPoints:0,mountainPointsCurrent:0,sprintPointsCurrent:0},fatiga:0,generalFatiga:0 },
-    { id: "rouler_green", name: 'Rodador Verde', team: 'green_team',image:"GreenRouleur.jpg",currentTurn:0 ,currentTime:0,generalTime:0,currentPosition:0 ,currentCalculo:false,awards:{stageWin:0,secondInStage:0,thirdInStage:0,mountainPoints:0,sprintPoints:0,mountainPointsCurrent:0,sprintPointsCurrent:0},fatiga:0,generalFatiga:0 },
-    { id: "sprinter_black", name: 'Sprinter Negro', team: 'black_team' ,image:"BlackSprinteur.jpg",currentTurn:0,currentTime:0,generalTime:0,currentPosition:0,currentCalculo:false,awards:{stageWin:0,secondInStage:0,thirdInStage:0,mountainPoints:0,sprintPoints:0,mountainPointsCurrent:0,sprintPointsCurrent:0} ,fatiga:0,generalFatiga:0 },
-    { id: "rouler_black", name: 'Rodador Negro', team: 'black_team',image:"BlackRouleur.jpg",currentTurn:0 ,currentTime:0,generalTime:0,currentPosition:0,currentCalculo:false,awards:{stageWin:0,secondInStage:0,thirdInStage:0,mountainPoints:0,sprintPoints:0,mountainPointsCurrent:0,sprintPointsCurrent:0},fatiga:0,generalFatiga:0 },
-   
-    { id: "sprinter_pink", name: 'Sprinter Rosa', team: 'pink_team' ,image:"PinkSprinteur.jpg",currentTurn:0,currentTime:0,generalTime:0,currentPosition:0 ,currentCalculo:false,awards:{stageWin:0,secondInStage:0,thirdInStage:0,mountainPoints:0,sprintPoints:0,mountainPointsCurrent:0,sprintPointsCurrent:0},fatiga:0,generalFatiga:0 },
-    { id: "rouler_pink", name: 'Rodador Rosa', team: 'pink_team',image:"PinkRouleur.jpg",currentTurn:0 ,currentTime:0,generalTime:0,currentPosition:0 ,currentCalculo:false,awards:{stageWin:0,secondInStage:0,thirdInStage:0,mountainPoints:0,sprintPoints:0,mountainPointsCurrent:0,sprintPointsCurrent:0},fatiga:0,generalFatiga:0 },
-    { id: "sprinter_white", name: 'Sprinter Blanco', team: 'white_team' ,image:"WhiteSprinteur.jpg",currentTurn:0,currentTime:0,generalTime:0,currentPosition:0,currentCalculo:false,awards:{stageWin:0,secondInStage:0,thirdInStage:0,mountainPoints:0,sprintPoints:0,mountainPointsCurrent:0,sprintPointsCurrent:0} ,fatiga:0,generalFatiga:0 },
-    { id: "rouler_white", name: 'Rodador Blanco', team: 'white_team',image:"WhiteRouleur.jpg",currentTurn:0 ,currentTime:0,generalTime:0,currentPosition:0,currentCalculo:false,awards:{stageWin:0,secondInStage:0,thirdInStage:0,mountainPoints:0,sprintPoints:0,mountainPointsCurrent:0,sprintPointsCurrent:0},fatiga:0,generalFatiga:0 },
-
-  ];
+    let cyclists = cyclist;
 
 
 
@@ -156,7 +139,7 @@ function openSettings(){
         c.generalTime = 0
         c.fatiga = 0
         c.generalFatiga = 0
-        c.awards={stageWin:0,secondInStage:0,thirdInStage:0,mountainPoints:0,sprintPoints:0,sprintPointsCurrent:0,mountainPointsCurrent:0}
+        c.awards={firstInStage:0,secondInStage:0,thirdInStage:0,mountainPoints:0,sprintPoints:0,sprintPointsCurrent:0,mountainPointsCurrent:0}
       })
 
       console.log("Cambiando de Tab")

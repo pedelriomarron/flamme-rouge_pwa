@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { goto } from "@roxi/routify";
+import { baseURL } from "$src/stores/stores";
+import { goto } from "@roxi/routify";
 
   function navigate(url) {
     console.log("Navigate url", url);
     $goto(url);
   }
 
-   let base =""//"/flamme-rouge_pwa"
 
 
-  navigate(base+"/tabs/home");
+  navigate($baseURL+"/tabs/home/");
 </script>

@@ -153,7 +153,7 @@
         $currentGame.cyclistsFinish.map((c,i)=>{
             switch (i) {
                 case 0:
-                    c.awards.stageWin++
+                    c.awards.firstInStage++
                     break;
                 case 1:
                     c.awards.secondInStage++
@@ -178,7 +178,7 @@
     const updateTeams= ()=>{
         $currentGame.teams.map(t=>{
         
-        t.awards.stageWin =0
+        t.awards.firstInStage =0
         t.awards.secondInStage =0
         t.awards.thirdInStage =0
         t.awards.mountainPoints=0
@@ -188,14 +188,14 @@
         $currentGame.cyclists.map(c=>{
         //console.log(c)
         if(c.team!=t.id) return
-        t.awards.stageWin +=c.awards.stageWin
+        t.awards.firstInStage +=c.awards.firstInStage
         t.awards.secondInStage +=c.awards.secondInStage
         t.awards.thirdInStage +=c.awards.thirdInStage
         t.awards.mountainPoints+=c.awards.mountainPoints
         t.awards.sprintPoints+=c.awards.sprintPoints
         })
         console.log(t)
-        t.awards.total+=(t.awards.stageWin*3)
+        t.awards.total+=(t.awards.firstInStage*3)
         t.awards.total+=(t.awards.secondInStage*2)
         t.awards.total+=(t.awards.thirdInStage*1)
 
