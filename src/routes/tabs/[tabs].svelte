@@ -12,20 +12,22 @@
   import MountainRanking from "$pages/MountainRanking.svelte";
   import PointsRanking from "$pages/PointsRanking.svelte";
 import Test from "$components/Test.svelte";
+import { _ } from 'svelte-i18n'
+
 
 
   let tabs = $params.tabs;
   let tab = "home";
 
   const myTabs1 = [
-    { label: "Inicio", icon: "home", tab: "home", component: Home,visible:true },
-    { label: "Etapa", icon: "flag", tab: "stage", component: Stage ,visible:true},
-    { label: "General Ranking", icon: "time", tab: "general-ranking", component: GeneralRanking,visible:true },
-    { label: "Teams Ranking", icon:  $baseURL+"assets/icons/team.svg", tab: "teams-ranking", component: TeamsRanking,visible:true },
-    { label: "Settings", icon: "settings", tab: "settings", component: Settings ,visible:false},
-    { label: "Climber Ranking", icon: $baseURL+"assets/icons/mountain.svg", tab: "climber-ranking", component: MountainRanking,visible:false },
-    { label: "Points Ranking", icon: $baseURL+"assets/icons/sprint.svg", tab: "points-ranking", component: PointsRanking,visible:false },
-    { label: "test", icon: $baseURL+"assets/icons/sprint.svg", tab: "test", component: Test,visible:false },
+    { label: $_('TABS.HOME'), icon: "home", tab: "home", component: Home,visible:true },
+    { label: $_('TABS.STAGE'), icon: "flag", tab: "stage", component: Stage ,visible:true},
+    { label: $_('TABS.TIME_RANKING'), icon: "time", tab: "general-ranking", component: GeneralRanking,visible:true },
+    { label: $_('TABS.TEAM_RANKING'), icon:  $baseURL+"assets/icons/team.svg", tab: "teams-ranking", component: TeamsRanking,visible:true },
+    { label: $_('TABS.SETTINGS'), icon: "settings", tab: "settings", component: Settings ,visible:false},
+    { label: $_('TABS.CLIMBER_RANKING'), icon: $baseURL+"assets/icons/mountain.svg", tab: "climber-ranking", component: MountainRanking,visible:false },
+    { label: $_('TABS.POINTS_RANKING'), icon: $baseURL+"assets/icons/sprint.svg", tab: "points-ranking", component: PointsRanking,visible:false },
+    { label: $_('TABS.TEST'), icon: $baseURL+"assets/icons/sprint.svg", tab: "test", component: Test,visible:false },
 
   ];
 

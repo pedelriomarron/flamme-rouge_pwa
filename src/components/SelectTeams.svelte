@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { _ ,locale} from 'svelte-i18n'
     import {selectedCurrentTeams,defaultTeams, baseURL, settingsStore} from "$stores/stores.js"
     import { create  } from 'ionicons/icons';
     import {showAlert,selectTab} from "$utils/utils.js"
@@ -59,7 +60,7 @@
   </script>
    
 <div>
-    <ion-row><ion-col><h1>Equipos</h1></ion-col></ion-row>
+    <ion-row><ion-col><h1>{$_('HOME.TEAMS')}</h1></ion-col></ion-row>
         {#each $defaultTeams as team,i}
         {#if team.expansion == "base" || ($settingsStore.expansion_peloton && team.expansion == "peloton")  }
           <ion-row class="ion-align-items-center  ">  

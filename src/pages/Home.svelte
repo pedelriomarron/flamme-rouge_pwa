@@ -2,13 +2,17 @@
     import SelectTeams from "$components/SelectTeams.svelte";
     import SelectStages from "$components/SelectStages.svelte";
     import {showAlert,selectTab,updateTabs,allStorage, showAlertPromise} from "$utils/utils.js"
-
-    import {selectedStages,currentGame, selectedCurrentTeams,ionTabBarElementCurrent,myTabs,settingsStore,partidasGuardadas,baseURL} from "$stores/stores.js"
-
+    import { _ ,locale} from 'svelte-i18n'
+    import {selectedStages,currentGame, selectedCurrentTeams,ionTabBarElementCurrent,myTabs,settingsStore,partidasGuardadas,baseURL,defaultTeams} from "$stores/stores.js"
     import { bicycle,settings,cloudDownload  } from 'ionicons/icons';
-    import LoadGame from "$src/components/LoadGame.svelte";
     import { cyclist } from "$src/data/cyclist";
+    import { generateTeams } from '$src/data/teams'
 
+
+    defaultTeams.set(generateTeams())
+
+    //locale.set("fr")
+    //console.log(locale)
 
     let cyclists = cyclist;
 
@@ -156,10 +160,8 @@ function openSettings(){
   }
   
 
-
+  {$_('WHITE')}
 </script>
-
-
   <ion-header>
     <ion-toolbar>
       <ion-buttons slot="start">
@@ -174,7 +176,7 @@ function openSettings(){
         </ion-button>
       </ion-buttons>
       {/if}
-      <ion-title>Salida</ion-title>
+      <ion-title>{$_('HOME.TITLE')}</ion-title>
     </ion-toolbar>
   </ion-header>
   
@@ -182,7 +184,7 @@ function openSettings(){
 
     <ion-header collapse="condense">
       <ion-toolbar>
-        <ion-title size="large">Home</ion-title>
+        <ion-title size="large"></ion-title>
       </ion-toolbar>
     </ion-header>
   
@@ -191,8 +193,8 @@ function openSettings(){
     <ion-grid>
       <ion-row>
         <ion-col>
-            <h1>¡Preparate para el Gran Tour!</h1>
-            <h4>Equipos participantes en la Carrera y número de etapas:</h4>
+            <h1>{$_('HOME.WELCOME')}</h1>
+            <h4>{$_('HOME.INTRO')}</h4>
         </ion-col>
       </ion-row>
       <hr/>
@@ -202,16 +204,8 @@ function openSettings(){
       <SelectStages/>
       <ion-row>
         <ion-col>
-          <ion-button color="brown" size="large" expand="full" on:click={handleClick} ><ion-icon slot="start" icon={bicycle} ></ion-icon>Iniciar el Tour</ion-button >
+          <ion-button color="brown" size="large" expand="full" on:click={handleClick} ><ion-icon slot="start" icon={bicycle} ></ion-icon>{$_('HOME.START')}</ion-button >
           </ion-col>
       </ion-row>
-
-     <!--  <ion-row><ion-col><p>{JSON.stringify( $currentGame)}</p></ion-col></ion-row>-->
-
     </ion-grid>
-
   </ion-content>
-
-
- 
-  

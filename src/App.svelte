@@ -5,8 +5,10 @@
   
 
   /* Theme variables */
+  import "./i18n"
   import "./theme/variables.css";
   import "./theme/main.css";
+
 
   import { onMount } from "svelte";
 

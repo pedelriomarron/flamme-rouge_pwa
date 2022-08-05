@@ -1,4 +1,3 @@
-import { teams } from '$src/data/teams'
 import { writable } from 'svelte/store'
 
 const currentGame = writable({ teams: [], totalStages: 0, currentStage: 1, ok: false, cyclists: [], cyclistsInRace: [], cyclistsFinish: [], currentTurn: 0, currentPositionWinner: 0, finish: false, modeMountain: false, modeSprint: false, guardarFatiga: false, confirmarNuevoTurno: false })
@@ -10,7 +9,7 @@ const settingsStore = writable({ modeMountain: false, modeSprint: false, guardar
 const partidasGuardadas = writable(0)
 const baseURL = writable("")
 
-const defaultTeams = writable(teams)
+const defaultTeams = writable([])
 
 
 
