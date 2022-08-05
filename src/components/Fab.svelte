@@ -33,7 +33,7 @@ function handle(tab){
     <ion-fab-list side="start">
       {#if $currentGame.modeSprint==true }
       <ion-fab-button on:click={()=> handle("points-ranking")} color="light">
-        <ion-icon src={baseURL+"assets/icons/sprint.svg"} />
+        <ion-icon src={$baseURL+"assets/icons/sprint.svg"} />
       </ion-fab-button>
       {/if}
      

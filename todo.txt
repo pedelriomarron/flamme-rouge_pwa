@@ -1,0 +1,3 @@
+- Añadir componente informativo para la etapa, que muestre la configuracion actual de la carrera.
+
+
