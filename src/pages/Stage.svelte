@@ -1,11 +1,12 @@
 <script>
-    import CurrentStage from "$components/CurrentStage.svelte";
+import CurrentStage from "$components/CurrentStage.svelte";
 import FinishLine from "$components/FinishLine.svelte";
 import SelectCurrentStage from "$components/SelectCurrentStage.svelte";
 import ExploreContainer from "../components/Test.svelte";
-    import {currentGame,ionTabBarElementCurrent,partidasGuardadas} from "$stores/stores.js"
-    import {showAlert,selectTab,saveGame,showAlertPromise,allStorage} from "$utils/utils.js"
-    import { bicycle,close,cloudUpload  } from 'ionicons/icons';
+import {currentGame,ionTabBarElementCurrent,partidasGuardadas} from "$stores/stores.js"
+import {showAlert,selectTab,saveGame,showAlertPromise,allStorage} from "$utils/utils.js"
+import { bicycle,close,cloudUpload  } from 'ionicons/icons';
+import { _ } from 'svelte-i18n'
 
      function handleSaveGame(){
 
@@ -23,46 +24,42 @@ games.map(g=>{
 })
 
 let cancel =  {
-                  text: "Cancel",
+                  text:  $_('CANCEL'),
                   role: "cancel",
                   cssClass: "secondary",
                   handler: (value) => {
-                    console.log("Confirm Cancel");
                   },
                 } 
 
 
   let partidaGuardada = ()=>{showAlert({
-      header: "Partida guardada",
-      message: "Partida guardada con exito.",
-      buttons: ["OK"],
+      header: $_('ALERTS.SAVED_GAME'),
+      message: $_('ALERTS.SAVED_GAME_SUCCESS'),
+      buttons: [$_('OK')],
     })}
 
     let nuevaPartida={}
     if(games.length<3){
 nuevaPartida =    {
-          text: "Nueva Partida",
+          text:  $_('ALERTS.NEW_GAME'),
            handler: async (data) => {
             await   showAlertPromise({
               cssClass: "my-custom-class",
-              header: "Creando partida",
+              header:$_('ALERTS.CREATING_GAME'),
               inputs: [
                 {
                   name: "name",
                   type: "text",
-                  placeholder: "Name Game",
+                  placeholder: $_('ALERTS.NAME_GAME'),
                 },
       ],
       buttons: [
                 cancel,
                 {
-                  text: "Ok",
+                  text:  $_('OK'),
                   handler: (value) => {
-                    console.log(value)
-
                     saveGame($currentGame,"game_"+value.name)
                     partidaGuardada()
-                    console.log("Confirm Ok");
                   },
                 },
               ],
@@ -74,22 +71,18 @@ nuevaPartida =    {
 let cargarPartida= {}
 if(games.length>0){
    cargarPartida =      {
-          text: "Ok",
+          text: $_('OK'),
           handler: (data) => {
-            console.log("Confirm Ok", data);
             saveGame($currentGame,data)
             partidaGuardada()
-
           },
         }
 }
 
-
-
-      
+    
 showAlert({
-      header: "Guardar partida",
-      message: "Elige la partida a sobrescribir.",
+      header: $_('ALERTS.SAVE_GAME'),
+      message: $_('ALERTS.CHOOSE_GAME'),
       inputs:radios,
       buttons: [
    cargarPartida,
@@ -97,17 +90,13 @@ showAlert({
         cancel
       ],
     })
-
     partidasGuardadas.set(allStorage().length)
-
 }
-
-
   </script>
   
   <ion-header>
     <ion-toolbar>
-      <ion-title> Etapa {$currentGame.currentStage}/{$currentGame.totalStages} </ion-title>
+      <ion-title> {$_('STAGE.STAGE')} {$currentGame.currentStage}/{$currentGame.totalStages} </ion-title>
       <ion-buttons slot="end">
         <ion-button on:click={handleSaveGame}>
           <ion-icon slot="icon-only" icon={cloudUpload} />
@@ -119,7 +108,7 @@ showAlert({
   <ion-content>
     <ion-header collapse="condense">
       <ion-toolbar>
-        <ion-title size="large">Stage</ion-title>
+        <ion-title size="large"></ion-title>
       </ion-toolbar>
     </ion-header>
 
@@ -135,8 +124,6 @@ showAlert({
       {#if $currentGame.cyclistsInRace.length >0}
         <CurrentStage/>
     {/if}
-
     </ion-grid>
-  
+
   </ion-content>
-  

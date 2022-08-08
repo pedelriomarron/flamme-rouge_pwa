@@ -2,6 +2,7 @@
     import {baseURL, currentGame} from "$stores/stores.js"
     import { pencil,flag,repeat,arrowForward,trophy,shirt,journal  } from 'ionicons/icons';
     import {showAlert,selectTab,fancyTimeFormat} from "$utils/utils.js"
+    import { _ ,locale} from 'svelte-i18n'
 
 
 
@@ -31,7 +32,6 @@
     <hr>
 </ion-row>
 {/each}
-
 {/if}
 
 
@@ -39,10 +39,6 @@
 </div>
 
 
-
   <style>
-
-
-
   </style>
   

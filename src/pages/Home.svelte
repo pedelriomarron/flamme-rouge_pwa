@@ -1,11 +1,11 @@
 <script>
     import SelectTeams from "$components/SelectTeams.svelte";
     import SelectStages from "$components/SelectStages.svelte";
-    import {showAlert,selectTab,updateTabs,allStorage, showAlertPromise} from "$utils/utils.js"
+    import {showAlert,selectTab,updateTabs,allStorage, showAlertPromise, alerts} from "$utils/utils.js"
     import { _ ,locale} from 'svelte-i18n'
     import {selectedStages,currentGame, selectedCurrentTeams,ionTabBarElementCurrent,myTabs,settingsStore,partidasGuardadas,baseURL,defaultTeams} from "$stores/stores.js"
     import { bicycle,settings,cloudDownload  } from 'ionicons/icons';
-    import { cyclist } from "$src/data/cyclist";
+    import { generateCyclist } from "$src/data/cyclist";
     import { generateTeams } from '$src/data/teams'
 
 
@@ -14,7 +14,7 @@
     //locale.set("fr")
     //console.log(locale)
 
-    let cyclists = cyclist;
+let cyclists = generateCyclist();
 
 
 
@@ -93,7 +93,6 @@ function openSettings(){
 
 
   function getCyclists(){
-    console.log("Añadiendo ciclistas")
     let cyclistsCurrent = []
 
     $selectedCurrentTeams.map(team=>{
@@ -110,12 +109,7 @@ function openSettings(){
     function handleClick() {
       console.log($selectedCurrentTeams.length+" equipos.")
       if($selectedCurrentTeams.length <2){
-        showAlert({
-          header: "Seleccionar equipos",
-          subHeader: "",
-          message: "Seleccionar al menos 2 equipos para empezar la carrera.",
-          buttons: ["OK"],
-          })
+        showAlert(alerts.select2team)
           return
       }
 
@@ -209,3 +203,4 @@ function openSettings(){
       </ion-row>
     </ion-grid>
   </ion-content>
+

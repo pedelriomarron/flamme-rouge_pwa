@@ -52,7 +52,15 @@
     "RESET": "Przywróć ustawienia domyślne",
     "COMPUTE_EXHAUSTION_CARDS": "Zachowane karty zmęczenia",
     "NOTICE_COMPUTE_EXHAUSTION_CARDS": "W momencie przekroczenia linii mety przez zawodnika, aplikacja zapyta o aktualną ilość jego kart zmęczenia i podpowie, ile z nich należy zachować.",
-    "TITLE_EXPANSION": "ROZSZERZENIA"
+    "TITLE_EXPANSION": "ROZSZERZENIA",
+    "INFO_VERSION": "Wersja",
+    "INFO_DEVELOPER": "Deweloper",
+    "TITLE_MODES": "TRYBY",
+    "MODE_MAILLOT_CLIMBER": "Koszulka wspinaczkowa",
+    "NOTICE_MODE_MAILLOT_CLIMBER": "Śledzi punkty uzyskane z klasyfikacji górskiej.",
+    "MODE_MAILLOT_POINTS": "Punkty Jersey",
+    "NOTICE_MODE_MAILLOT_POINTS": "Prowadzi liczenie punktów uzyskanych z klasyfikacji według punktów.",
+    "TITLE_INFO": "INFORMACJE"
   },
   "TABS": {
     "HOME": "Start",
@@ -94,7 +102,7 @@
   "CYCLIST_NAME": "{{team.colorTranslated}} {{name}}",
   "TEAM_NAME": "{{ customName }}",
   "MESSAGES": {
-    "ARRIVAL": "{{team.colorTranslated}} {{name}} przejeżdża linię mety!",
+    "ARRIVAL": "przekracza linię!",
     "HOW_MANY_SQUARES": "O ile kwadratów przejechał metę?",
     "OK": "OK",
     "CANCEL": "Anuluj",
@@ -123,7 +131,9 @@
     "CONFIRM_EXIT_WITHOUT_SAVING_NEW_TRACK_MESSAGE": "Nowy tor nie został ukończony ani zapisany. Czy chcesz opuścić kreator etapów?",
     "CONFIRM_EXIT_WITHOUT_SAVING_MESSAGE": "Zmiany nie zostały zapisane. Na pewno chcesz wyjść?",
     "CONFIRM_NEW_TOUR_TITLE": "Wyścig już trwa",
-    "CONFIRM_NEW_TOUR_MESSAGE": "Na pewno chcesz rozpocząć nowy (wszystkie postępy zostaną utracone)?"
+    "CONFIRM_NEW_TOUR_MESSAGE": "Na pewno chcesz rozpocząć nowy (wszystkie postępy zostaną utracone)?",
+    "IMPOSSIBLE_SQUARES_DESCRIPTION_1": "Stoją już dwaj jeźdźcy",
+    "IMPOSSIBLE_SQUARES_DESCRIPTION_2": "kwadrat(y) za linią mety."
   },
   "SHARE": {
     "FACEBOOK": "{{customNameFull}} wygrywa nasz ostatni wielki wyścig w Wielkiej Pętli!",
@@ -158,5 +168,19 @@
   },
   "TEAM": "Zespół",
   "PINK": "Różowy",
-  "WHITE": "Biały"
+  "WHITE": "Biały",
+  "OK": "Ok",
+  "ALERTS": {
+    "CREATE_CAREER_FIRST": "Najpierw utwórz karierę",
+    "NEW_GAME": "Nowa gra",
+    "SAVE_GAME": "Zapisz grę",
+    "CHOOSE_GAME": "Wybierz grę do zastąpienia.",
+    "SAVED_GAME": "Zapisana gra",
+    "SAVED_GAME_SUCCESS": "Gra została pomyślnie zapisana",
+    "CREATING_GAME": "Tworzenie gry",
+    "NAME_GAME": "Nazwa gry"
+  },
+  "SPRINTER": "Sprinter",
+  "ROULER": "Linijka",
+  "CANCEL": "Anulować"
 }

@@ -52,7 +52,15 @@
     "RESET": "Ripristina valori iniziali",
     "COMPUTE_EXHAUSTION_CARDS": "Carte fatica da mantenere",
     "NOTICE_COMPUTE_EXHAUSTION_CARDS": "Per ogni ciclista che arriva, l'app chiede quante carte fatica siano rimaste e poi mostra quante debbano essere mantenute per la prossima tappa",
-    "TITLE_EXPANSION": "ESPANSIONE"
+    "TITLE_EXPANSION": "ESPANSIONE",
+    "INFO_VERSION": "Versione",
+    "INFO_DEVELOPER": "Sviluppatore",
+    "TITLE_MODES": "MODALITÀ",
+    "MODE_MAILLOT_CLIMBER": "Maglia da scalatore",
+    "NOTICE_MODE_MAILLOT_CLIMBER": "Tiene traccia dei punti ottenuti dalla classifica della montagna.",
+    "MODE_MAILLOT_POINTS": "Maglia a punti",
+    "NOTICE_MODE_MAILLOT_POINTS": "Mantiene il conteggio dei punti ottenuti dalla classifica a punti.",
+    "TITLE_INFO": "INFORMAZIONI"
   },
   "TABS": {
     "HOME": "Inizio",
@@ -94,7 +102,7 @@
   "CYCLIST_NAME": "{{name}} {{team.colorTranslated}}",
   "TEAM_NAME": "{{ customName }}",
   "MESSAGES": {
-    "ARRIVAL": "Il {{name}} {{team.colorTranslated}} taglia il traguardo!",
+    "ARRIVAL": "supera il limite!",
     "HOW_MANY_SQUARES": "Quante caselle dopo il traguardo sono state raggiunte?",
     "OK": "OK",
     "CANCEL": "Annulla",
@@ -123,7 +131,9 @@
     "CONFIRM_EXIT_WITHOUT_SAVING_NEW_TRACK_MESSAGE": "Il nuovo percorso non è stato terminato né salvato. Sei sicuro di voler lasciare il designer di tracciati?",
     "CONFIRM_EXIT_WITHOUT_SAVING_MESSAGE": "Le modifiche non sono state salvate. Sicuro di voler uscire?",
     "CONFIRM_NEW_TOUR_TITLE": "Tour già in corso",
-    "CONFIRM_NEW_TOUR_MESSAGE": "Hai già un Tour in corso. Sei sicuro di volerne iniziare uno nuovo? Tutti i dati attuali andranno persi."
+    "CONFIRM_NEW_TOUR_MESSAGE": "Hai già un Tour in corso. Sei sicuro di volerne iniziare uno nuovo? Tutti i dati attuali andranno persi.",
+    "IMPOSSIBLE_SQUARES_DESCRIPTION_1": "Ci sono già due piloti in piedi",
+    "IMPOSSIBLE_SQUARES_DESCRIPTION_2": "quadrato(i) dopo il traguardo."
   },
   "SHARE": {
     "FACEBOOK": "{{customNameFull}} ha vinto il nostro ultimo Grand Tour a Flamme Rouge!",
@@ -158,5 +168,19 @@
   },
   "TEAM": "Squadra",
   "PINK": "Rosa",
-  "WHITE": "Bianco"
+  "WHITE": "Bianco",
+  "OK": "Ok",
+  "ALERTS": {
+    "CREATE_CAREER_FIRST": "Crea prima una carriera",
+    "NEW_GAME": "Nuovo gioco",
+    "SAVE_GAME": "Salva il gioco",
+    "CHOOSE_GAME": "Scegli il gioco da sovrascrivere.",
+    "SAVED_GAME": "Partita salvata",
+    "SAVED_GAME_SUCCESS": "Gioco salvato con successo",
+    "CREATING_GAME": "Creazione del gioco",
+    "NAME_GAME": "Nome del gioco"
+  },
+  "SPRINTER": "Velocista",
+  "ROULER": "Rouler",
+  "CANCEL": "Annulla"
 }

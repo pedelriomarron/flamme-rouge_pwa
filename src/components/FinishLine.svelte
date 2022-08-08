@@ -1,7 +1,8 @@
 <script lang="ts">
-    import {showAlert,selectTab,fancyTimeFormat,updateTabs,fatiga,showAlertPromise, mountainySprint} from "$utils/utils.js"
+    import {showAlert,selectTab,fancyTimeFormat,updateTabs,fatiga,showAlertPromise, mountainySprint, alerts} from "$utils/utils.js"
     import {baseURL, currentGame,ionTabBarElementCurrent,myTabs} from "$stores/stores.js"
     import { pencil,flag,repeat,arrowForward,trophy,journal  } from 'ionicons/icons';
+    import { _ ,locale} from 'svelte-i18n'
 
     let finish = false;
 
@@ -10,14 +11,14 @@
         if($currentGame.confirmarNuevoTurno){
 
         let res= await showAlertPromise({
-                header: `Confirmar fin del turno`,
-                message:"¿Estas seguro que todos los corredores han realizado sus movimientos en este turno?",
+                header: $_('MESSAGES.CONFIRM_NEW_ROUND_TITLE') ,
+                message:$_('MESSAGES.CONFIRM_NEW_ROUND_MESSAGE'),
                 buttons: [{
-                    text: 'Cancel',
+                    text: $_('MESSAGES.CANCEL'),
                     role: 'cancel',
                     handler: (e) => {return e}
                 },{
-                    text: 'OK',
+                    text:$_('MESSAGES.OK'),
                     role: 'ok',
                     handler:  function(e){ return e}
                 }
@@ -70,7 +71,6 @@
         finish=true
 
         if($currentGame.currentStage >= $currentGame.totalStages) {
-            console.log("CARRERA ACABADA")
             $currentGame.finish =true
         }
 
@@ -84,12 +84,12 @@
         header: `¡${cyclist.name} cruza la meta! ¿Cuantas casillas ha alcanzado tras cruzar la linea de meta?`,
         buttons: [
             {
-              text: 'Cancel',
+              text: $_('MESSAGES.CANCEL'),
               role: 'cancel',
              // handler: () => { setHandlerMessage('Alert canceled'); }
             },
             {
-              text: 'OK',
+              text: $_('MESSAGES.OK'),
               role: 'confirm',
             handler: (value) => { handleOk(value,cyclist) }
             }
@@ -121,15 +121,13 @@
             value: '5'
           },
           {
-            label: 'No llegó aun',
+            label: $_('MESSAGES.NOT_ARRIVED'),
             type: 'radio',
             value: 'back'
           }
           
         ]
       })
-
-      console.log(a)
 
         return
       
@@ -236,11 +234,7 @@
         })
         console.log(posicionOcupada)
         if(posicionOcupada>1){
-          showAlert({
-            header: "Posición inválida",
-            message: `Ya hay dos corredores parados ${e} casillas despues de la linea de meta.`,
-            buttons: ["OK"],
-    })
+          showAlert(alerts.invalidPosition(e) )
           return false
         } 
 
@@ -283,7 +277,7 @@
   </script>
   
   <div>
-    <ion-row><ion-col><h1>En Linea de Meta</h1></ion-col></ion-row>
+    <ion-row><ion-col><h1>{$_('STAGE.ARRIVED')}</h1></ion-col></ion-row>
         {#each $currentGame.cyclistsFinish as cyclist,i}
         <ion-row class="ion-align-items-center ">     
             <ion-col size="2"><ion-img class="cyclist-rounded inlay-circle" src={$baseURL+"assets/cyclists/"+cyclist.image} /></ion-col>
@@ -291,13 +285,13 @@
                 {#if cyclist.currentCalculo == false} <span style={"color:"+$currentGame.teams.find(t=> t.id ==cyclist.team).color}>{i+1}.</span>{/if}
                 <span>{cyclist.name}</span> <br/> 
                 {#if cyclist.currentCalculo == true}
-                    <span class="subtitle">Tiempo calculado al finalizar la ronda.</span><br>
+                    <span class="subtitle">{$_('STAGE.TIME_COMPUTED')}</span><br>
                     {#if $currentGame.modeMountain} ( <span class="subtitle">{cyclist.awards.mountainPointsCurrent} <ion-icon style=" fill:white;" slot="end" src={$baseURL+"assets/icons/"+"maillot_mountain.svg"} /> </span> ){/if}
                     {#if $currentGame.modeSprint} ( <span class="subtitle">{cyclist.awards.sprintPointsCurrent} <ion-icon color="green"  slot="end" style="" src={$baseURL+"assets/icons/"+"maillot_yellow.svg"} /> </span> ){/if}
 
                 {:else if cyclist.currentCalculo == false} 
                 {#if i==0 } 
-                <span class="subtitle">Ganador de la etapa</span>   
+                <span class="subtitle">{$_('STAGE.STAGE_LEADER')}</span>   
                 {:else}
                 <span class="subtitle">+{fancyTimeFormat(cyclist.currentTime)}</span>  
                 {/if}
@@ -331,42 +325,31 @@
         {#if $currentGame.cyclistsInRace.length == 0 && finish==false && $currentGame.finish==false   }   
         <ion-row class="ion-align-items-center  ">         
             <ion-col size="2"></ion-col>
-            <ion-col size="8"><ion-button on:click={()=> handleClickFinishStage()} expand="block" color="brown"  ><ion-icon slot="start" icon={flag}/> Fin de la Etapa</ion-button></ion-col>
+            <ion-col size="8"><ion-button on:click={()=> handleClickFinishStage()} expand="block" color="brown"  ><ion-icon slot="start" icon={flag}/>{$_('STAGE.STAGE_END')}</ion-button></ion-col>
             <ion-col size="2"></ion-col>
         </ion-row>
         {:else if  $currentGame.cyclistsInRace.length > 0 && $currentGame.finish==false }
         <ion-row class="ion-align-items-center  ">         
             <ion-col size="2"></ion-col>
-            <ion-col size="8"><ion-button on:click={()=> handleClickNextTurn()} expand="block" color="brown" ><ion-icon slot="start" icon={repeat}/> Siguiente Turno</ion-button></ion-col>
+            <ion-col size="8"><ion-button on:click={()=> handleClickNextTurn()} expand="block" color="brown" ><ion-icon slot="start" icon={repeat}/>{$_('STAGE.NEW_TURN')}</ion-button></ion-col>
             <ion-col size="2"></ion-col>
         </ion-row>
         {:else if finish==true && $currentGame.currentStage < $currentGame.totalStages && $currentGame.finish==false  }
         <ion-row class="ion-align-items-center  ">         
             <ion-col size="2"></ion-col>
-            <ion-col size="8"><ion-button on:click={()=> handleClickNextStage()} expand="block" color="brown"  ><ion-icon slot="start" icon={arrowForward}/> Iniciar Etapa siguiente</ion-button></ion-col>
+            <ion-col size="8"><ion-button on:click={()=> handleClickNextStage()} expand="block" color="brown"  ><ion-icon slot="start" icon={arrowForward}/>{$_('STAGE.START_NEXT_STAGE')}</ion-button></ion-col>
             <ion-col size="2"></ion-col>
         </ion-row>
         {:else if $currentGame.finish==true   }
         <ion-row class="ion-align-items-center  ">         
             <ion-col size="2"></ion-col>
-            <ion-col size="8"><ion-button on:click={()=> finishRace()  } expand="block"  color="brown" ><ion-icon slot="start" icon={arrowForward}/>Terminar Carrera</ion-button></ion-col>
+            <ion-col size="8"><ion-button on:click={()=> finishRace()  } expand="block"  color="brown" ><ion-icon slot="start" icon={arrowForward}/>{$_('STAGE.FINISH_TOUR')}</ion-button></ion-col>
             <ion-col size="2"></ion-col>
         </ion-row>
         {/if}
 
-
 </div>
 
-
-
   <style>
-
-
-
-
-
-
- 
-
   </style>
   

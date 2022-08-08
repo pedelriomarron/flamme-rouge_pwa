@@ -14,7 +14,7 @@ function handle(tab){
 
 {#if $currentGame.modeSprint==true || $currentGame.modeMountain==true }
 <ion-fab horizontal="end" vertical="bottom"  >
-    <ion-fab-button color="light">
+    <ion-fab-button color="brownmain">
       <ion-icon icon={trophy} />
     </ion-fab-button>
     <ion-fab-list side="top">

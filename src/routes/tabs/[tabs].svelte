@@ -2,8 +2,7 @@
   import IonTab from "$lib/ionic/svelte/components/IonTabs.svelte";
   import { params } from "@roxi/routify";
   import {baseURL, currentGame,ionTabBarElementCurrent,myTabs,partidasGuardadas, settingsStore} from "$stores/stores.js"
-  import {showAlert,selectTab, allStorage} from "$utils/utils.js"
-  import { pin, images, square } from "ionicons/icons";
+  import {showAlert,selectTab, allStorage,alerts} from "$utils/utils.js"
   import Home from "$pages/Home.svelte";
   import Stage from "$pages/Stage.svelte";
   import GeneralRanking from "$pages/GeneralRanking.svelte";
@@ -11,10 +10,8 @@
   import Settings from "$pages/Settings.svelte";
   import MountainRanking from "$pages/MountainRanking.svelte";
   import PointsRanking from "$pages/PointsRanking.svelte";
-import Test from "$components/Test.svelte";
-import { _ } from 'svelte-i18n'
-
-
+  import Test from "$components/Test.svelte";
+  import { _ } from 'svelte-i18n'
 
   let tabs = $params.tabs;
   let tab = "home";
@@ -28,7 +25,6 @@ import { _ } from 'svelte-i18n'
     { label: $_('TABS.CLIMBER_RANKING'), icon: $baseURL+"assets/icons/mountain.svg", tab: "climber-ranking", component: MountainRanking,visible:false },
     { label: $_('TABS.POINTS_RANKING'), icon: $baseURL+"assets/icons/sprint.svg", tab: "points-ranking", component: PointsRanking,visible:false },
     { label: $_('TABS.TEST'), icon: $baseURL+"assets/icons/sprint.svg", tab: "test", component: Test,visible:false },
-
   ];
 
   $myTabs =myTabs1 
@@ -41,18 +37,10 @@ import { _ } from 'svelte-i18n'
     let tabOk = false
     if((event?.detail?.tab == "home" ||  event?.detail?.tab == "settings") ) tabOk = true
 
-
     //Middleware Este creado un Juego
     if(!tabOk && !$currentGame.ok && event?.type == "ionTabsDidChange"){
-      console.log("Aun no se puede entrar:", event?.detail?.tab, event?.type)
-      showAlert({
-          header: "Crea primero una Carrera",
-          subHeader: "",
-          message: "Seleccionar al menos 2 equipos y el numero de etapas para empezar la carrera.",
-          buttons: ["OK"],
-          })
+      showAlert(alerts.select2team)
       selectTab($ionTabBarElementCurrent,"home")
-
     }
     
     partidasGuardadas.set(allStorage().length)
@@ -60,14 +48,8 @@ import { _ } from 'svelte-i18n'
       settingsStore.set(JSON.parse(localStorage.getItem("settingsStore")))
     }
 
-    
-
-
-
-
   };
 
-  console.log("Creando IonTab")
 </script>
 
 <IonTab

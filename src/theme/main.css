@@ -236,3 +236,21 @@ input[type='checkbox']:checked {
 .cyclist-rounded::part(image) {
     border-radius: 50% !important;
 }
+
+:root {
+    --ion-color-brownmain: #471913;
+    --ion-color-brownmain-rgb: 71, 25, 19;
+    --ion-color-brownmain-contrast: #ffffff;
+    --ion-color-brownmain-contrast-rgb: 255, 255, 255;
+    --ion-color-brownmain-shade: #3e1611;
+    --ion-color-brownmain-tint: #59302b;
+}
+
+.ion-color-brownmain {
+    --ion-color-base: var(--ion-color-brownmain);
+    --ion-color-base-rgb: var(--ion-color-brownmain-rgb);
+    --ion-color-contrast: var(--ion-color-brownmain-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-brownmain-contrast-rgb);
+    --ion-color-shade: var(--ion-color-brownmain-shade);
+    --ion-color-tint: var(--ion-color-brownmain-tint);
+}

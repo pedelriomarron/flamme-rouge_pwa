@@ -52,7 +52,15 @@
         "RESET": "Valores por defecto",
         "COMPUTE_EXHAUSTION_CARDS": "Guardar cartas de fatiga",
         "NOTICE_COMPUTE_EXHAUSTION_CARDS": "Para cada corredor que ha llegado, la app pedirá el número de cartas de fatiga que aún poseemos y pedirá cuantas deben ser guardadas para la etapa siguiente.",
-        "TITLE_EXPANSION": "EXPANSIÓNS"
+        "TITLE_EXPANSION": "EXPANSIONES",
+        "INFO_VERSION": "Versión",
+        "INFO_DEVELOPER": "Desarrollador",
+        "TITLE_MODES": "MODOS",
+        "MODE_MAILLOT_CLIMBER": "Jersey de escalador",
+        "NOTICE_MODE_MAILLOT_CLIMBER": "Realiza un seguimiento de los puntos obtenidos de la clasificación de la montaña.",
+        "MODE_MAILLOT_POINTS": "Jersey de puntos",
+        "NOTICE_MODE_MAILLOT_POINTS": "Lleva el recuento de los puntos obtenidos de la clasificación por puntos.",
+        "TITLE_INFO": "INFORMACIÓN"
     },
     "TABS": {
         "HOME": "Inicio",
@@ -94,7 +102,7 @@
     "CYCLIST_NAME": "{{name}} {{team.colorTranslated}}",
     "TEAM_NAME": "{{ customName }}",
     "MESSAGES": {
-        "ARRIVAL": "¡{{name}} {{team.colorTranslated}} cruza la meta!",
+        "ARRIVAL": "cruza la línea!",
         "HOW_MANY_SQUARES": "¿Cuantas casillas ha alcanzado tras cruzar la línea de meta?",
         "OK": "OK",
         "CANCEL": "Cancelar",
@@ -102,7 +110,7 @@
         "WITHDRAWAL_TITLE": "{{name}} {{team.colorTranslated}} retirado",
         "WITHDRAWAL_DESCRIPTION": "El {{name}} {{team.colorTranslated}} está demasiado retrasado para continuar el Tour.",
         "IMPOSSIBLE_SQUARES_TITLE": "Posición inválida",
-        "IMPOSSIBLE_SQUARES_DESCRIPTION": "Ya hay dos corredores parados {{squares}} casillas después de la línea de meta.",
+        "IMPOSSIBLE_SQUARES_DESCRIPTION": "Ya hay dos corredores parados {squares} casillas después de la línea de meta.",
         "MIN_TEAMS_TITLE": "Seleccionar equipos",
         "MIN_TEAMS_DESCRIPTION": "Seleccionar al menos 2 equipos para empezar la carrera.",
         "CYCLIST_WINNER_TITLE": "¡<span class=\"{{team.color}}\">{{name}} {{team.colorTranslated}}</span> gana!",
@@ -123,7 +131,9 @@
         "CONFIRM_EXIT_WITHOUT_SAVING_NEW_TRACK_MESSAGE": "Los nuevos recorridos no se han terminado o guardado. ¿Quieres salir del diseñador de etapas?",
         "CONFIRM_EXIT_WITHOUT_SAVING_MESSAGE": "Los cambios no han sido guardados. ¿Seguro que quieres salir?",
         "CONFIRM_NEW_TOUR_TITLE": "Tour ya en curso",
-        "CONFIRM_NEW_TOUR_MESSAGE": "¿Está seguro de que desea iniciar uno nuevo (todos los datos actuales se perderán)?"
+        "CONFIRM_NEW_TOUR_MESSAGE": "¿Está seguro de que desea iniciar uno nuevo (todos los datos actuales se perderán)?",
+        "IMPOSSIBLE_SQUARES_DESCRIPTION_1": "Ya hay dos jinetes en pie",
+        "IMPOSSIBLE_SQUARES_DESCRIPTION_2": "cuadrado(s) después de la línea de meta."
     },
     "SHARE": {
         "FACEBOOK": "!{{customNameFull}} ganó nuestra última Gran Carrera en Flamme Rouge!",
@@ -158,5 +168,21 @@
     },
     "TEAM": "Equipo",
     "PINK": "Rosa",
-    "WHITE": "Blanco"
+    "WHITE": "Blanco",
+    "OK": "OK",
+    "ALERTS": {
+        "CREATE_CAREER_FIRST": "Crear una carrera primero",
+        "NEW_GAME": "Nuevo juego",
+        "SAVE_GAME": "Guardar partida",
+        "CHOOSE_GAME": "Elija el juego para sobrescribir.",
+        "SAVED_GAME": "Partida guardada",
+        "SAVED_GAME_SUCCESS": "Juego guardado con éxito",
+        "CREATING_GAME": "Creando juego",
+        "NAME_GAME": "Nombre del juego"
+    },
+    "sprinter": "",
+    "rouler": "",
+    "SPRINTER": "Velocista",
+    "ROULER": "Rodador",
+    "CANCEL": "Cancelar"
 }

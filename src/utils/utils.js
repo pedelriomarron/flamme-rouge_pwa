@@ -1,5 +1,7 @@
 import { alertController } from "$ionic/svelte";
 import { writable } from "svelte/store";
+import { _ } from 'svelte-i18n'
+import {get } from 'svelte/store'
 
 const saveGame = (data, id) => {
     const storedTheme = localStorage.getItem("theme");
@@ -31,7 +33,6 @@ async function showAlertPromise(options) {
 
 
 const selectTab = async(controller, selected) => {
-    //console.log("Cambiado de tab,", selected)
     let tries = 0;
     if (controller && controller.select) {
         controller.select(selected).then(async(x) => {
@@ -91,14 +92,12 @@ let fatiga = (cyclist, currentGame, $currentGame) => showAlert({
         placeholder: "Cartas de fatiga restantes",
     }, ],
     buttons: [{
-        text: "Ok",
+        text: get(_)('MESSAGES.OK'),
         handler: (e) => {
             if (e.fatiga === "") {
                 fatiga(cyclist, currentGame, $currentGame)
             }
-            console.log("Confirm Ok", e.team);
             cyclist.fatiga = e.fatiga
-            console.log(cyclist)
             currentGame.set($currentGame)
         },
     }, ],
@@ -122,9 +121,7 @@ let mountainySprint = (cyclist, currentGame, $currentGame, textname, id) => show
             if (e.value === "") {
                 mountainySprint(cyclist, currentGame, $currentGame, textname, id)
             }
-            console.log("Confirm Ok", e.team);
             cyclist.awards[id] = e.value
-            console.log(cyclist)
             currentGame.set($currentGame)
         },
     }, ],
@@ -148,4 +145,22 @@ function allStorage() {
     return values;
 }
 
-export { showAlert, selectTab, updateTabs, fancyTimeFormat, fatiga, showAlertPromise, mountainySprint, saveGame, allStorage }
+
+let alerts = {
+
+    "select2team": {
+        header: get(_)('ALERTS.CREATE_CAREER_FIRST'),
+        subHeader: "",
+        message: get(_)('ALERTS.SELECT_MINIMUM_2_TEAMS'),
+        buttons: [get(_)('OK')],
+    },
+    "invalidPosition": (e) => {
+        return {
+            header: get(_)('MESSAGES.IMPOSSIBLE_SQUARES_TITLE'),
+            message: `${get(_)('MESSAGES.IMPOSSIBLE_SQUARES_DESCRIPTION_1')} ${e} ${get(_)('MESSAGES.IMPOSSIBLE_SQUARES_DESCRIPTION_2')}`,
+            buttons: [get(_)('MESSAGES.OK')],
+        }
+    }
+}
+
+export { showAlert, selectTab, updateTabs, fancyTimeFormat, fatiga, showAlertPromise, mountainySprint, saveGame, allStorage, alerts }

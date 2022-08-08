@@ -1,1 +1,0 @@
-import{S as c,i as u,s as l,k as r,R as p}from"./index.85674b36.js";import{g as m}from"./index.4b59c9ba.js";function b(s,t,e){let a,n;r(s,p,o=>e(0,a=o)),r(s,m,o=>e(1,n=o));function i(o){console.log("Navigate url",o),n(o)}return i(a+"/tabs/home/"),[]}class R extends c{constructor(t){super(),u(this,t,b,null,l,{})}}export{R as default};

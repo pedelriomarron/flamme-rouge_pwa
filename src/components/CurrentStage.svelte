@@ -1,20 +1,20 @@
 <script lang="ts">
-    import {showAlert,selectTab,fatiga, showAlertPromise, mountainySprint} from "$utils/utils.js"
+    import {showAlert,selectTab,fatiga, showAlertPromise, mountainySprint, alerts} from "$utils/utils.js"
     import {currentGame,baseURL} from "$stores/stores.js"
+    import { _ ,locale} from 'svelte-i18n'
 
 
      function handleClickButton(cyclist) {
      
         let a =  showAlert({
-        header: `¡${cyclist.name} cruza la meta! ¿Cuantas casillas ha alcanzado tras cruzar la linea de meta?`,
+        header: `¡${cyclist.name} ${$_('MESSAGES.ARRIVAL')} ${$_('MESSAGES.HOW_MANY_SQUARES')}`,
         buttons: [
             {
-              text: 'Cancel',
+              text: $_('MESSAGES.CANCEL'),
               role: 'cancel',
-             // handler: () => { setHandlerMessage('Alert canceled'); }
             },
             {
-              text: 'OK',
+              text: $_('MESSAGES.OK'),
               role: 'confirm',
             handler: (value) => { handleOk(value,cyclist) }
             }
@@ -65,11 +65,7 @@
         })
         console.log(posicionOcupada)
         if(posicionOcupada>1){
-          showAlert({
-            header: "Posición inválida",
-            message: `Ya hay dos corredores parados ${e} casillas despues de la linea de meta.`,
-            buttons: ["OK"],
-    })
+          showAlert(alerts.invalidPosition(e))
           return false
         } 
 
@@ -88,11 +84,11 @@
         }
 
         if($currentGame.modeMountain){
-          mountainySprint(cyclist,currentGame,$currentGame,"montaña", "mountainPointsCurrent")
+          mountainySprint(cyclist,currentGame,$currentGame,$_('ALERTS.MOUNTAIN'), "mountainPointsCurrent")
         }
 
         if($currentGame.modeSprint){
-          mountainySprint(cyclist,currentGame,$currentGame,"sprint","sprintPointsCurrent")
+          mountainySprint(cyclist,currentGame,$currentGame,$_('ALERTS.POINTS'),"sprintPointsCurrent")
         }
 
 
@@ -117,27 +113,22 @@
   </script>
   
   <div>
-    <ion-row class="ion-align-items-center"><ion-col size="9"><h1>En Carrera</h1></ion-col><ion-col size="3">
+    <ion-row class="ion-align-items-center"><ion-col size="9"><h1>{$_('STAGE.IN_RACE')}</h1></ion-col><ion-col size="3">
       {#if $currentGame.currentTurn>0}
-      <p>+{$currentGame.currentTurn} turnos</p>
+      <p>+{$currentGame.currentTurn} {$_('STAGE.TURNS')}</p>
       {/if}
     </ion-col></ion-row>
         {#each $currentGame.cyclistsInRace as cyclist,i}
         <ion-row class="ion-align-items-center ">   
             <ion-col size="2"><ion-img class="cyclist-rounded inlay-circle" src={$baseURL+"assets/cyclists/"+cyclist.image} /></ion-col>
             <ion-col size="7"><span>{cyclist.name}</span></ion-col>
-            <ion-col class="center" size="3"><ion-button color="brown" on:click={()=> handleClickButton(cyclist)} size="small">Meta</ion-button></ion-col>
+            <ion-col class="center" size="3"><ion-button color="brown" on:click={()=> handleClickButton(cyclist)} size="small">{$_('STAGE.FINISH')}</ion-button></ion-col>
         </ion-row>
         <hr/>
         {/each}
 
 </div>
 
-
-
   <style>
-
-
-
   </style>
   
